@@ -1,5 +1,6 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
@@ -9,7 +10,21 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    publicDir: path.resolve(__dirname, 'public'),
+    plugins: [
+      react(), 
+      tailwindcss(),
+      {
+        name: 'copy-images-folder',
+        closeBundle() {
+          const srcDir = path.resolve(__dirname, 'images');
+          const destDir = path.resolve(__dirname, 'dist/images');
+          if (fs.existsSync(srcDir)) {
+            fs.cpSync(srcDir, destDir, { recursive: true });
+          }
+        }
+      }
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
