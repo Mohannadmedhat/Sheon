@@ -1,0 +1,2737 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHEON</title>
+    <!-- Favicon & App Icons (SHEON S Monogram) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="192x192" href="images/favicon-192.png" />
+    <meta name="description" content="تسوقي شميز أوفر سايز كتان إسباني رويال من SHEON. خامة فاخرة، قصة محتشمة بأربطة جانبية ومقاس موحد يناسب من 70 حتى 110 كجم. معاينة قبل الدفع وشحن مخفض." />
+    <meta property="og:title" content="SHEON" />
+    <meta property="og:description" content="تصفيات الصيف الكبرى - خصم حتى 33% على الباقات + شحن 60 ج للقاهرة والجيزة ومعاينة وفحص قبل الاستلام." />
+    <meta property="og:image" content="images/favicon.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Cairo (industry standard luxury Egyptian e-commerce), Playfair Display (brand wordmark) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              sheon: {
+                bg: '#FAF8F5',
+                card: '#FFFFFF',
+                dark: '#141414',
+                burgundy: '#6A1A24',
+                burgundyLight: '#FBF0F1',
+                olive: '#1B3F2F',
+                oliveLight: '#EEF4F0',
+                beige: '#C5A37E',
+                beigeLight: '#F7F3EE',
+                sand: '#EADBCA',
+                charcoal: '#282828',
+                muted: '#6E6E6E',
+                border: '#EAE5DE'
+              }
+            },
+            fontFamily: {
+              sans: ['Cairo', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+              arabic: ['Cairo', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+              heading: ['Cairo', 'sans-serif'],
+              brand: ['"Playfair Display"', 'serif']
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Ensure connected Arabic ligatures are NEVER broken by letter-spacing */
+      *, *::before, *::after {
+        letter-spacing: normal !important;
+        box-sizing: border-box;
+      }
+      html {
+        font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        text-rendering: optimizeLegibility;
+        direction: rtl;
+        text-align: right;
+      }
+      body {
+        font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: #FAF8F5;
+        color: #141414;
+        font-size: 15px;
+        line-height: 1.65;
+        direction: rtl;
+        text-align: right;
+        -webkit-tap-highlight-color: transparent;
+      }
+      h1, h2, h3, h4, h5, h6, .font-heading {
+        font-family: 'Cairo', sans-serif;
+        line-height: 1.38 !important;
+      }
+      select option {
+        font-family: 'Cairo', sans-serif;
+        font-size: 14px;
+        padding: 8px 12px;
+        direction: rtl;
+        text-align: right;
+      }
+      .font-brand {
+        font-family: 'Playfair Display', serif;
+      }
+      p {
+        line-height: 1.7;
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #FAF8F5;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #D5CEC5;
+        border-radius: 999px;
+      }
+      ::selection {
+        background-color: #6A1A24;
+        color: #ffffff;
+      }
+      @keyframes floatSoft {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-4px); }
+      }
+      .animate-float-soft {
+        animation: floatSoft 4s ease-in-out infinite;
+      }
+      .photo-zoom-container {
+        position: relative;
+        overflow: hidden;
+      }
+      .photo-zoom-container img {
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .photo-zoom-container:hover img {
+        transform: scale(1.05);
+      }
+
+      /* ===== LUXURY SCROLL REVEAL ===== */
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===== BESTSELLER BADGE ===== */
+      @keyframes bestseller-pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(251,191,36,0.5); }
+        50% { box-shadow: 0 0 0 6px rgba(251,191,36,0); }
+      }
+      .bestseller-badge {
+        animation: bestseller-pulse 2.5s infinite;
+      }
+
+      /* ===== PROGRESS BAR STEPS ===== */
+      .order-step-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        direction: rtl;
+        position: relative;
+        max-width: 440px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .order-step-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        position: relative;
+        z-index: 1;
+      }
+      .order-step-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 18px;
+        right: 50%;
+        width: 100%;
+        height: 2px;
+        background: #EAE5DE;
+        z-index: 0;
+        transition: background 0.3s ease;
+      }
+      .order-step-item.completed:not(:last-child)::after {
+        background: #6A1A24;
+      }
+      .order-step-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 800;
+        border: 2px solid #EAE5DE;
+        background: white;
+        color: #6E6E6E;
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s;
+      }
+      .order-step-icon.active {
+        border-color: #6A1A24;
+        background: #6A1A24;
+        color: white;
+        box-shadow: 0 0 0 4px rgba(106,26,36,0.15);
+      }
+      .order-step-icon.done {
+        border-color: #059669;
+        background: #059669;
+        color: white;
+      }
+      .order-step-label {
+        font-size: 12px;
+        font-weight: 700;
+        margin-top: 8px;
+        color: #6E6E6E;
+        text-align: center;
+      }
+      .order-step-item.active-step .order-step-label {
+        color: #6A1A24;
+        font-weight: 800;
+      }
+
+      /* ===== STICKY CTA (ALL SCREENS) ===== */
+      #sticky-order-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 40;
+        transform: translateY(100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      #sticky-order-cta.show {
+        transform: translateY(0);
+      }
+
+      /* ===== PULSE ANIMATION ===== */
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.6; transform: scale(1.25); }
+      }
+      .pulse-glow {
+        animation: pulseGlow 2s infinite ease-in-out;
+      }
+    </style>
+  </head>
+  <body class="bg-sheon-bg text-sheon-dark antialiased selection:bg-sheon-burgundy selection:text-white pb-20">
+
+    <!-- 2. HEADER -->
+    <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-sheon-border/80 transition-all">
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 md:h-20 flex items-center justify-between gap-2 sm:gap-4">
+        
+        <!-- Brand Wordmark & Monogram Logo -->
+        <a href="#" class="flex items-center gap-2 sm:gap-3 text-sheon-dark shrink-0 group">
+          <!-- Real SHEON Logo -->
+          <img 
+            src="images/logo.jpg" 
+            alt="SHEON Logo" 
+            class="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl object-cover shadow-xs group-hover:opacity-90 transition-opacity border border-neutral-100 shrink-0"
+          />
+          <span class="font-brand tracking-[0.15em] sm:tracking-[0.2em] text-xl sm:text-2xl font-bold">SHEON</span>
+        </a>
+
+        <!-- Middle Quick Links / Trust Badges -->
+        <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-xs xl:text-sm text-neutral-600 font-medium whitespace-nowrap">
+          <a href="#lookbook-section" class="hover:text-sheon-burgundy transition-colors inline-flex items-center gap-1.5 font-bold text-sheon-burgundy whitespace-nowrap">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span>الألوان على الطبيعة</span>
+          </a>
+          <span class="text-sheon-border">·</span>
+          <a href="#fit-advisor-section" class="hover:text-sheon-dark transition-colors inline-flex items-center gap-1.5 font-medium whitespace-nowrap">
+            <svg class="w-4 h-4 text-emerald-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>مستشار المقاس والوزن</span>
+          </a>
+          <span class="text-sheon-border">·</span>
+          <div class="inline-flex items-center gap-1.5 font-medium whitespace-nowrap">
+            <svg class="w-4 h-4 text-amber-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>معاينة وفحص قبل الدفع</span>
+          </div>
+        </nav>
+
+        <!-- Action Support Buttons -->
+        <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+          <a href="#order-section" class="inline-flex items-center justify-center px-3 sm:px-5 py-1.5 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-sheon-dark rounded-lg sm:rounded-xl hover:bg-sheon-burgundy transition-all shadow-xs whitespace-nowrap shrink-0">
+            <span>اطلبي الآن</span>
+          </a>
+          <a href="https://wa.me/201006626593?text=مرحباً%20SHEON%20عندي%20استفسار%20عن%20شميز%20الكتان%20الإسباني" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 sm:px-4 py-1.5 sm:py-2.5 text-xs sm:text-sm font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200/80 rounded-lg sm:rounded-xl hover:bg-emerald-100 transition-all shadow-2xs whitespace-nowrap shrink-0">
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 fill-current shrink-0" viewBox="0 0 24 24">
+              <path d="M12.031 2C6.495 2 2 6.495 2 12.031a9.98 9.98 0 001.378 5.068L2 22l5.068-1.378a9.988 9.988 0 004.963 1.409h.005c5.536 0 10.031-4.495 10.031-10.031A10.031 10.031 0 0012.031 2zm0 18.25a8.214 8.214 0 01-4.195-1.144l-.301-.179-3.118.848.848-3.118-.179-.301a8.21 8.21 0 01-1.255-4.225c0-4.542 3.696-8.238 8.238-8.238 4.542 0 8.238 3.696 8.238 8.238 0 4.542-3.696 8.238-8.238 8.238zm4.512-6.177c-.247-.124-1.464-.722-1.691-.805-.227-.082-.392-.124-.557.124-.165.247-.64 1.01-.784 1.175-.144.165-.289.185-.536.062-.247-.124-1.042-.384-1.986-1.226-.733-.654-1.228-1.463-1.372-1.71-.144-.247-.015-.38.109-.503.111-.111.247-.289.371-.433.124-.144.165-.247.247-.412.082-.165.041-.309-.021-.433-.062-.124-.557-1.34-.763-1.835-.201-.482-.405-.417-.557-.425l-.474-.008c-.165 0-.433.062-.66.309-.227.247-.866.845-.866 2.062 0 1.216.887 2.392 1.01 2.557.124.165 1.745 2.665 4.228 3.738.591.256 1.053.409 1.413.523.594.189 1.135.162 1.562.099.477-.071 1.464-.598 1.67-1.175.206-.577.206-1.072.144-1.175-.062-.103-.227-.165-.474-.289z"/>
+            </svg>
+            <span class="font-bold">واتساب</span>
+            <span class="font-mono text-xs text-emerald-700 font-semibold hidden md:inline" dir="ltr">(01006626593)</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3. HERO SHOWCASE SECTION -->
+    <section class="relative pt-6 pb-12 md:pt-10 md:pb-16 overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none opacity-40">
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-sheon-beige/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-sheon-burgundy/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- Hero Text & Hook -->
+          <div class="lg:col-span-6 flex flex-col items-start text-right">
+            
+            <div class="inline-flex items-center gap-2 text-xs font-bold text-sheon-burgundy bg-sheon-burgundyLight px-3.5 py-1.5 rounded-full mb-4 border border-sheon-burgundy/15">
+              <span>🔥 تصفيات الصيف الرسمية</span>
+              <span class="text-sheon-burgundy/40">·</span>
+              <span>100% كتان إسباني فاخر</span>
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-sheon-dark leading-snug mb-3.5">
+              الشميز الأوفرسايز الأكثر طلباً..
+              <span class="block text-sheon-burgundy mt-1">كتان إسباني أصلي رويال</span>
+            </h1>
+
+            <p class="text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed mb-6 max-w-xl font-normal">
+              إطلالة محتشمة وراقية تناسب يومك بكل خفة. قصة انسيابية واسعة مع أربطة جانبية للتحكم بالاتساع، وقصة دائرية طويلة وساترة من الخلف، مصنوع من خامة الكتان الإسباني المعالج البارد غير الشفاف.
+            </p>
+
+            <!-- Key Feature Quick Badges (Clean Responsive Grid) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full max-w-lg mb-6">
+              <div class="bg-white p-3 rounded-xl border border-sheon-border flex items-center gap-3 shadow-xs">
+                <div class="w-9 h-9 rounded-xl bg-sheon-burgundyLight text-sheon-burgundy flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs sm:text-sm font-bold text-sheon-dark leading-tight">مقاس موحد مريح</div>
+                  <div class="text-xs text-neutral-500 mt-0.5">يلبس من 70 حتى 110 كجم</div>
+                </div>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl border border-sheon-border flex items-center gap-3 shadow-xs">
+                <div class="w-9 h-9 rounded-xl bg-sheon-oliveLight text-sheon-olive flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs sm:text-sm font-bold text-sheon-dark leading-tight">أربطة جانبية ذكية</div>
+                  <div class="text-xs text-neutral-500 mt-0.5">لتضييق أو توسيع الاستايل</div>
+                </div>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl border border-sheon-border flex items-center gap-3 shadow-xs">
+                <div class="w-9 h-9 rounded-xl bg-sheon-beigeLight text-sheon-beige flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs sm:text-sm font-bold text-sheon-dark leading-tight">كتان إسباني أصلي</div>
+                  <div class="text-xs text-neutral-500 mt-0.5">طبيعي، بارد، ولا يشف</div>
+                </div>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl border border-sheon-border flex items-center gap-3 shadow-xs">
+                <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="text-xs sm:text-sm font-bold text-sheon-dark leading-tight">معاينة قبل الاستلام</div>
+                  <div class="text-xs text-neutral-500 mt-0.5">افتحي الشحنة وافحصيها بنفسك</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Price Highlight & CTAs -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full">
+              <a href="#order-section" class="flex-1 text-center bg-sheon-burgundy hover:bg-[#52131B] text-white text-sm sm:text-base font-extrabold py-4 px-6 rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                <span>اطلبي الآن واستفيدي بالخصم</span>
+                <svg class="w-4 h-4 -scale-x-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <a href="#lookbook-section" class="text-center bg-white hover:bg-neutral-100 text-sheon-dark border border-sheon-border text-xs sm:text-sm font-bold py-4 px-5 rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-xs">
+                <span>شاهدي صور اللبس الحقيقية</span>
+              </a>
+            </div>
+
+            <div class="flex items-center gap-3 mt-6 text-xs text-neutral-600">
+              <div class="flex -space-x-2 space-x-reverse">
+                <div class="w-8 h-8 rounded-full bg-sheon-burgundy text-white flex items-center justify-center font-bold text-xs ring-2 ring-white">س</div>
+                <div class="w-8 h-8 rounded-full bg-sheon-olive text-white flex items-center justify-center font-bold text-xs ring-2 ring-white">م</div>
+                <div class="w-8 h-8 rounded-full bg-sheon-beige text-white flex items-center justify-center font-bold text-xs ring-2 ring-white">ن</div>
+                <div class="w-8 h-8 rounded-full bg-sheon-dark text-white flex items-center justify-center font-bold text-xs ring-2 ring-white">ي</div>
+              </div>
+              <div class="flex flex-col">
+                <div class="flex items-center text-amber-500 text-xs font-bold">★★★★★ <span class="text-sheon-dark font-black mr-1.5">(4.9/5)</span></div>
+                <span class="text-xs text-neutral-500">أكثر من 1,850 عميلة سعيدة خلال شهرين في مصر</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Visual Showcase -->
+          <div class="lg:col-span-6 relative">
+            <div class="relative bg-white rounded-2xl p-4 sm:p-6 border border-sheon-border shadow-sm">
+              
+              <div class="flex items-center justify-between mb-3.5 text-xs">
+                <span class="bg-sheon-burgundy text-white px-3 py-1 rounded-lg font-bold text-xs">
+                  تصفيات الصيف الحصرية
+                </span>
+                <span class="text-neutral-600 font-bold bg-sheon-bg px-3 py-1 rounded-lg border border-sheon-border text-xs">
+                  100% كتان إسباني أصلي
+                </span>
+              </div>
+
+              <!-- Main Hero Interactive Visual Frame -->
+              <div id="hero-interactive-frame" class="w-full aspect-[3/4] sm:aspect-[4/5] rounded-xl overflow-hidden relative bg-neutral-100 flex items-center justify-center border border-sheon-border/60 transition-all duration-300 group">
+                <div id="hero-display-container" class="w-full h-full relative overflow-hidden flex flex-col items-center justify-center p-0"></div>
+
+                <!-- Prev / Next Navigation Arrows on Hero Frame -->
+                <button 
+                  type="button" 
+                  onclick="navigateHeroPhoto(-1)" 
+                  class="absolute top-1/2 right-2.5 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 hover:bg-white text-sheon-dark flex items-center justify-center shadow-md transition-all active:scale-95" 
+                  title="الصورة السابقة"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                </button>
+                <button 
+                  type="button" 
+                  onclick="navigateHeroPhoto(1)" 
+                  class="absolute top-1/2 left-2.5 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 hover:bg-white text-sheon-dark flex items-center justify-center shadow-md transition-all active:scale-95" 
+                  title="الصورة التالية"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+
+                <!-- Floating Info Badge -->
+                <div class="absolute bottom-3 inset-x-3 sm:bottom-4 sm:inset-x-4 bg-white/95 backdrop-blur-md p-3 sm:p-3.5 rounded-xl border border-white/60 shadow-md flex items-center justify-between text-xs z-20">
+                  <div>
+                    <span id="hero-color-name" class="font-bold text-sheon-dark text-xs sm:text-sm block">بيرجندي أنيق (Deep Burgundy)</span>
+                    <p class="text-[11px] sm:text-xs text-neutral-500 mt-0.5">قصة أوفر سايز ملكية ساترة بأربطة تحكم</p>
+                  </div>
+                  <div class="flex items-center gap-1.5 shrink-0">
+                    <span id="hero-photo-counter" class="px-2 py-0.5 bg-sheon-burgundyLight text-sheon-burgundy rounded-md font-bold text-[11px] border border-sheon-burgundy/20 font-mono">
+                      1 / 5
+                    </span>
+                    <span class="hidden sm:inline-block px-2 py-0.5 bg-sheon-bg text-sheon-dark rounded-md font-bold text-[11px] border border-sheon-border">
+                      One Size
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Thumbnails Strip Under Showcase -->
+              <div class="mt-3 flex items-center justify-center gap-2 overflow-x-auto pb-1" id="hero-gallery-strip"></div>
+
+              <!-- Swatches Under Showcase -->
+              <div class="mt-3.5 flex items-center justify-between flex-wrap gap-2 pt-2.5 border-t border-sheon-border/60">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-bold text-neutral-600">اختيار لون المعاينة:</span>
+                  <button 
+                    type="button"
+                    id="auto-cycle-badge" 
+                    onclick="toggleAutoCycle()" 
+                    title="انقري للتثبيت أو تشغيل التبديل التلقائي"
+                    class="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80 shadow-2xs transition-all cursor-pointer hover:bg-emerald-100 active:scale-95"
+                  >
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span>تبديل تلقائي</span>
+                  </button>
+                </div>
+                <div class="flex items-center gap-2.5" id="hero-swatch-list"></div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. OFFICIAL REAL PHOTOS LOOKBOOK GALLERY (New High-Trust Section) -->
+    <section id="lookbook-section" class="reveal-on-scroll py-12 md:py-16 bg-white border-y border-sheon-border">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 text-xs font-bold text-sheon-burgundy bg-sheon-burgundyLight px-3.5 py-1.5 rounded-full mb-2.5 border border-sheon-burgundy/15">
+              <span>📸 جلسة التصوير الرسمية</span>
+              <span>·</span>
+              <span>صور حقيقية على الموديل 100%</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-sheon-dark">
+              معرض ألوان وتنسيقات شميز SHEON
+            </h2>
+            <p class="text-xs sm:text-sm text-neutral-500 mt-1">
+              شاهدي كيف ينسدل الشميز في اللبس الحقيقي مع الأربطة الجانبية والقصة الطويلة من الخلف
+            </p>
+          </div>
+
+          <!-- Model Specs Pill -->
+          <div class="bg-sheon-bg p-3.5 rounded-2xl border border-sheon-border text-xs flex items-center gap-3 shrink-0 shadow-xs">
+            <div class="w-8 h-8 rounded-xl bg-sheon-dark text-white flex items-center justify-center font-bold text-xs shrink-0">
+              ✓
+            </div>
+            <div>
+              <div class="font-bold text-sheon-dark text-xs sm:text-sm">مواصفات الموديل في جلسة التصوير:</div>
+              <div class="text-neutral-500 text-xs mt-0.5">الطول: 170 سم · الوزن: 78 كجم · ترتدي المقاس الموحد (One Size)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Real Colorway Grid Cards - Harmonized Dimensions & Heights -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          
+          <!-- Look 1: Burgundy (Multi-Photo Interactive Gallery) -->
+          <div class="group bg-sheon-bg rounded-2xl overflow-hidden border border-sheon-border hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div class="aspect-[3/4] relative overflow-hidden bg-neutral-200 photo-zoom-container">
+              <img 
+                id="lookbook-burgundy-img"
+                src="images/burgundy-1.jpg" 
+                alt="شميز أوفر سايز كتان إسباني بيرجندي أنيق SHEON" 
+                class="w-full h-full object-cover object-top transition-all duration-300"
+                loading="lazy"
+              />
+              
+              <!-- 5 Photos Badge -->
+              <div class="absolute top-3 right-3 z-10 bg-black/75 backdrop-blur-md text-white text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+                <span>📸 5 صور حقيقية</span>
+              </div>
+
+              <!-- Counter pill -->
+              <div class="absolute top-3 left-3 z-10 bg-black/60 backdrop-blur-md text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded-full" id="lookbook-burgundy-counter">
+                1 / 5
+              </div>
+
+              <!-- Prev / Next Navigation Arrows -->
+              <button 
+                type="button" 
+                onclick="changeLookbookBurgundy(-1)" 
+                class="absolute top-1/2 right-2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-sheon-dark flex items-center justify-center shadow-md transition-all active:scale-95" 
+                title="الصورة السابقة"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+              </button>
+              <button 
+                type="button" 
+                onclick="changeLookbookBurgundy(1)" 
+                class="absolute top-1/2 left-2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-sheon-dark flex items-center justify-center shadow-md transition-all active:scale-95" 
+                title="الصورة التالية"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+              </button>
+            </div>
+
+            <!-- Mini Thumbnails row for burgundy -->
+            <div class="px-3 pt-2.5 flex items-center gap-1.5 justify-center">
+              <button type="button" onclick="setLookbookBurgundyPhoto(0)" class="burgundy-thumb-btn w-9 h-11 rounded-md overflow-hidden border-2 border-sheon-burgundy scale-105 transition-all" title="إطلالة 1">
+                <img src="images/burgundy-1.jpg" alt="1" class="w-full h-full object-cover object-top" />
+              </button>
+              <button type="button" onclick="setLookbookBurgundyPhoto(1)" class="burgundy-thumb-btn w-9 h-11 rounded-md overflow-hidden border-2 border-neutral-200 opacity-60 hover:opacity-100 transition-all" title="إطلالة 2">
+                <img src="images/burgundy-3.jpg" alt="2" class="w-full h-full object-cover object-top" />
+              </button>
+              <button type="button" onclick="setLookbookBurgundyPhoto(2)" class="burgundy-thumb-btn w-9 h-11 rounded-md overflow-hidden border-2 border-neutral-200 opacity-60 hover:opacity-100 transition-all" title="إطلالة 3">
+                <img src="images/burgundy-4.jpg" alt="3" class="w-full h-full object-cover object-top" />
+              </button>
+              <button type="button" onclick="setLookbookBurgundyPhoto(3)" class="burgundy-thumb-btn w-9 h-11 rounded-md overflow-hidden border-2 border-neutral-200 opacity-60 hover:opacity-100 transition-all" title="إطلالة 4">
+                <img src="images/burgundy-5.jpg" alt="4" class="w-full h-full object-cover object-top" />
+              </button>
+              <button type="button" onclick="setLookbookBurgundyPhoto(4)" class="burgundy-thumb-btn w-9 h-11 rounded-md overflow-hidden border-2 border-neutral-200 opacity-60 hover:opacity-100 transition-all" title="إطلالة 5">
+                <img src="images/burgundy-2.jpg" alt="5" class="w-full h-full object-cover object-top" />
+              </button>
+            </div>
+
+            <div class="p-4 sm:p-5 pt-3 flex flex-col justify-between flex-1">
+              <div>
+                <h3 class="text-base font-bold text-sheon-dark mb-1 flex items-center justify-between">
+                  <span>اللون البيرجندي الملكي</span>
+                  <span class="text-[11px] text-sheon-burgundy font-bold bg-sheon-burgundyLight px-2 py-0.5 rounded-full">5 زوايا تصوير</span>
+                </h3>
+                <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed min-h-[48px]">
+                  لون عميق وفاخر يمنحك هيبة وأناقة لافتة. اضغطي على الصور لمشاهدة تفاصيل القصة من كل الزوايا.
+                </p>
+              </div>
+              <button type="button" onclick="quickChooseColor('burgundy')" class="mt-4 w-full py-3 px-3 text-xs sm:text-sm font-bold text-white bg-sheon-dark hover:bg-sheon-burgundy rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-sm">
+                <span>اختاري هذا اللون في الباقة</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Look 2: Warm Beige (Side Profile Highlight) — BESTSELLER -->
+          <div class="group bg-sheon-bg rounded-2xl overflow-hidden border-2 border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative shadow-sm">
+            <div class="aspect-[3/4] relative overflow-hidden bg-neutral-200 photo-zoom-container">
+              <img 
+                src="images/beige-1.jpg" 
+                alt="شميز أوفر سايز كتان إسباني بيج دافئ SHEON إطلالة جانبية" 
+                class="w-full h-full object-cover object-top"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4 sm:p-5 flex flex-col justify-between flex-1">
+              <div>
+                <h3 class="text-base font-bold text-sheon-dark mb-1.5 flex items-center justify-between">
+                  <span>اللون البيج الدافئ</span>
+                  <span class="text-xs bg-amber-100 text-amber-800 border border-amber-300 px-2 py-0.5 rounded-full font-bold">⭐ الأكثر طلباً</span>
+                </h3>
+                <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed min-h-[48px]">
+                  درجة ناعمة وعصرية تعكس جمال الكتان الإسباني الطبيعي مع قصة ساترة تماماً تحت الأرداف.
+                </p>
+              </div>
+              <button type="button" onclick="quickChooseColor('beige')" class="mt-4 w-full py-3 px-3 text-xs sm:text-sm font-black text-amber-950 bg-amber-400 hover:bg-amber-500 rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-sm">
+                <span>🔥 اختاري الأكثر مبيعاً الآن</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Look 3: Forest Olive -->
+          <div class="group bg-sheon-bg rounded-2xl overflow-hidden border border-sheon-border hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div class="aspect-[3/4] relative overflow-hidden bg-neutral-200 photo-zoom-container">
+              <img 
+                src="images/green-2.jpg" 
+                alt="شميز أوفر سايز كتان إسباني زيتي ملكي SHEON" 
+                class="w-full h-full object-cover object-top"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4 sm:p-5 flex flex-col justify-between flex-1">
+              <div>
+                <h3 class="text-base font-bold text-sheon-dark mb-1.5">اللون الزيتي الملكي</h3>
+                <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed min-h-[48px]">
+                  لون هادئ وراقي جداً في الصيف، يتماشى بامتياز مع درجات البيج والأوف وايت والأسود.
+                </p>
+              </div>
+              <button type="button" onclick="quickChooseColor('olive')" class="mt-4 w-full py-3 px-3 text-xs sm:text-sm font-bold text-white bg-sheon-dark hover:bg-sheon-burgundy rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-sm">
+                <span>اختاري هذا اللون في الباقة</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Look 4: Pure White -->
+          <div class="group bg-sheon-bg rounded-2xl overflow-hidden border border-sheon-border hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div class="aspect-[3/4] relative overflow-hidden bg-neutral-200 photo-zoom-container">
+              <img 
+                src="images/white-1.jpg" 
+                alt="شميز أوفر سايز كتان إسباني أبيض ناصع SHEON" 
+                class="w-full h-full object-cover object-top"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4 sm:p-5 flex flex-col justify-between flex-1">
+              <div>
+                <h3 class="text-base font-bold text-sheon-dark mb-1.5">اللون الأبيض الناصع</h3>
+                <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed min-h-[48px]">
+                  قطعة أساسية لكل خزانة، خامة كتان ملكية لا تشف ومريحة وباردة في كل الأوقات.
+                </p>
+              </div>
+              <button type="button" onclick="quickChooseColor('white')" class="mt-4 w-full py-3 px-3 text-xs sm:text-sm font-bold text-white bg-sheon-dark hover:bg-sheon-burgundy rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-sm">
+                <span>اختاري هذا اللون في الباقة</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. INTERACTIVE FIT ADVISOR (New High-Conversion Feature) -->
+    <section id="fit-advisor-section" class="py-12 bg-sheon-bg">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-sheon-border shadow-sm">
+          
+          <div class="text-center max-w-xl mx-auto mb-6">
+            <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200">
+              مستشار المقاس والوزن الذكي
+            </span>
+            <h2 class="text-xl sm:text-2xl font-bold text-sheon-dark mt-2.5">
+              كيف سيناسبك المقاس الموحد (One Size)؟
+            </h2>
+            <p class="text-xs sm:text-sm text-neutral-500 mt-1">
+              حددي وزنك التقريبي لمعرفة تفاصيل انسدال الشميز وإمكانية التحكم بالأربطة
+            </p>
+          </div>
+
+          <!-- Weight Slider & Visual Feedback -->
+          <div class="bg-sheon-bg p-5 sm:p-6 rounded-2xl border border-sheon-border max-w-2xl mx-auto space-y-4">
+            
+            <div class="flex items-center justify-between">
+              <label for="weight-range" class="text-sm font-bold text-sheon-dark">
+                حددي وزنك التقريبي:
+              </label>
+              <div class="text-xl sm:text-2xl font-black text-sheon-burgundy font-sans flex items-baseline gap-1">
+                <span id="weight-display-val">80</span>
+                <span class="text-xs font-bold text-neutral-500">كجم</span>
+              </div>
+            </div>
+
+            <!-- Slider Control -->
+            <input 
+              type="range" 
+              id="weight-range" 
+              min="65" 
+              max="115" 
+              value="80" 
+              step="1"
+              oninput="handleWeightChange(this.value)"
+              class="w-full h-2.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-sheon-burgundy"
+            />
+            
+            <div class="flex justify-between text-xs font-medium text-neutral-500">
+              <span>65 كجم</span>
+              <span class="font-bold text-sheon-dark">80 كجم (وزن الموديل)</span>
+              <span>95 كجم</span>
+              <span>115 كجم</span>
+            </div>
+
+            <!-- Dynamic Recommendation Box -->
+            <div id="fit-result-card" class="bg-white p-5 sm:p-6 rounded-2xl border-2 border-emerald-600/20 mt-4 text-xs sm:text-sm space-y-3 shadow-xs">
+              <div class="flex items-center gap-2.5 font-bold text-emerald-900 text-sm sm:text-base">
+                <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 text-xs font-black">✓</span>
+                <span id="fit-result-headline">المقاس مثالي جداً (Oversized Relaxed Fit)</span>
+              </div>
+              <p id="fit-result-desc" class="text-neutral-700 text-xs sm:text-sm leading-relaxed font-normal">
+                الشميز سينسدل برقي تام دون أي شد عند الصدر أو الذراعين، بطول 90 سم ساتر تماماً لمنطقة الأرداف من الخلف. يمكنك شد الأربطة الجانبية لتقسيم الخصر أو تركها منسدلة لإطلالة فضفاضة مريحة.
+              </p>
+              <div class="pt-3 border-t border-sheon-border/80 flex items-center justify-between text-xs flex-wrap gap-2.5">
+                <div class="flex items-center gap-1.5 text-neutral-600">
+                  <span class="w-1.5 h-1.5 rounded-full bg-neutral-400"></span>
+                  <span>محيط الشميز الكلي: <strong class="text-sheon-dark font-sans text-sm">140 سم</strong></span>
+                </div>
+                <span class="text-emerald-800 font-bold bg-emerald-50 border border-emerald-200/80 px-2.5 py-1 rounded-lg">✓ حق المعاينة والتجربة قبل الدفع مكفول</span>
+              </div>
+            </div>
+
+            <!-- Detailed Size & Dimension Specification Table -->
+            <div class="mt-6 pt-5 border-t border-sheon-border">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2.5">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-xl shrink-0">📐</span>
+                  <div>
+                    <h4 class="text-xs sm:text-sm font-bold text-sheon-dark">جدول القياسات التفصيلية للشميز (بالسنتيمتر)</h4>
+                    <span class="text-xs text-neutral-500">مقاسات حقيقية مأخوذة يدوياً من القطعة الأصلية</span>
+                  </div>
+                </div>
+                <div class="self-start sm:self-auto">
+                  <span class="inline-flex items-center gap-1.5 text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 px-3.5 py-1.5 rounded-full font-bold whitespace-nowrap shadow-xs" dir="rtl">
+                    <span class="text-emerald-700 font-bold">✓</span>
+                    <span>One Size حر (من 70 حتى 110 كجم)</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+                
+                <!-- Measurement 1: Chest -->
+                <div class="bg-white p-4 rounded-xl border border-sheon-border shadow-xs flex flex-col items-center text-center justify-between min-h-[125px] transition-shadow hover:shadow-sm">
+                  <span class="text-xs font-bold text-neutral-600 block">محيط الصدر الكلي</span>
+                  <div class="text-2xl sm:text-3xl font-black text-sheon-dark my-1.5 flex items-baseline justify-center gap-1">
+                    <span>140</span>
+                    <span class="text-xs font-bold text-neutral-400">سم</span>
+                  </div>
+                  <span class="inline-block text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60">
+                    أوفرسايز واسع ومريح
+                  </span>
+                </div>
+
+                <!-- Measurement 2: Back Length -->
+                <div class="bg-white p-4 rounded-xl border border-sheon-border shadow-xs flex flex-col items-center text-center justify-between min-h-[125px] transition-shadow hover:shadow-sm">
+                  <span class="text-xs font-bold text-neutral-600 block">الطول من الخلف</span>
+                  <div class="text-2xl sm:text-3xl font-black text-sheon-burgundy my-1.5 flex items-baseline justify-center gap-1">
+                    <span>90</span>
+                    <span class="text-xs font-bold text-sheon-burgundy/60">سم</span>
+                  </div>
+                  <span class="inline-block text-[11px] font-semibold text-sheon-burgundy bg-sheon-burgundyLight px-2.5 py-0.5 rounded-full border border-sheon-burgundy/20">
+                    ساتر تماماً للأرداف
+                  </span>
+                </div>
+
+                <!-- Measurement 3: Front Length -->
+                <div class="bg-white p-4 rounded-xl border border-sheon-border shadow-xs flex flex-col items-center text-center justify-between min-h-[125px] transition-shadow hover:shadow-sm">
+                  <span class="text-xs font-bold text-neutral-600 block">الطول من الأمام</span>
+                  <div class="text-2xl sm:text-3xl font-black text-sheon-dark my-1.5 flex items-baseline justify-center gap-1">
+                    <span>80</span>
+                    <span class="text-xs font-bold text-neutral-400">سم</span>
+                  </div>
+                  <span class="inline-block text-[11px] font-semibold text-neutral-700 bg-neutral-100 px-2.5 py-0.5 rounded-full">
+                    قصة انسيابية متوازنة
+                  </span>
+                </div>
+
+                <!-- Measurement 4: Sleeve Length -->
+                <div class="bg-white p-4 rounded-xl border border-sheon-border shadow-xs flex flex-col items-center text-center justify-between min-h-[125px] transition-shadow hover:shadow-sm">
+                  <span class="text-xs font-bold text-neutral-600 block">طول الكم</span>
+                  <div class="text-2xl sm:text-3xl font-black text-sheon-dark my-1.5 flex items-baseline justify-center gap-1">
+                    <span>62</span>
+                    <span class="text-xs font-bold text-neutral-400">سم</span>
+                  </div>
+                  <span class="inline-block text-[11px] font-semibold text-neutral-700 bg-neutral-100 px-2.5 py-0.5 rounded-full">
+                    كم ساقط مريح الحركة
+                  </span>
+                </div>
+
+                <!-- Measurement 5: Arm Width -->
+                <div class="bg-white p-4 rounded-xl border border-sheon-border shadow-xs flex flex-col items-center text-center justify-between min-h-[125px] transition-shadow hover:shadow-sm">
+                  <span class="text-xs font-bold text-neutral-600 block">محيط الذراع</span>
+                  <div class="text-2xl sm:text-3xl font-black text-sheon-dark my-1.5 flex items-baseline justify-center gap-1">
+                    <span>48</span>
+                    <span class="text-xs font-bold text-neutral-400">سم</span>
+                  </div>
+                  <span class="inline-block text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60">
+                    حر ومريح بدون أي ضيق
+                  </span>
+                </div>
+
+                <!-- Measurement 6: Side Drawstrings Flexibility -->
+                <div class="bg-white p-4 rounded-xl border border-sheon-border shadow-xs flex flex-col items-center text-center justify-between min-h-[125px] transition-shadow hover:shadow-sm">
+                  <span class="text-xs font-bold text-neutral-600 block">مرونة الأربطة الجانبية</span>
+                  <div class="text-xl sm:text-2xl font-black text-amber-900 my-1.5 flex items-baseline justify-center gap-1">
+                    <span>75 إلى 140</span>
+                    <span class="text-xs font-bold text-neutral-400">سم</span>
+                  </div>
+                  <span class="inline-block text-[11px] font-semibold text-amber-900 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200/60">
+                    تحكم بالتوسيع والتضييق
+                  </span>
+                </div>
+
+              </div>
+
+              <div class="mt-3 bg-white p-3 rounded-xl border border-sheon-border/70 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-600 gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0"></span>
+                  <span><strong>مقاسات الموديل في جلسة التصوير:</strong> الطول 170 سم — الوزن 78 كجم</span>
+                </div>
+                <span class="text-sheon-dark font-bold">الخامة كتان إسباني معالج ضد الانكماش والشفافية 100% ✓</span>
+              </div>
+            </div>
+
+            <div class="text-center pt-3">
+              <a href="#order-section" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-sheon-burgundy hover:underline">
+                <span>تثبيت هذا المقاس واختيار الباقة الآن</span>
+                <svg class="w-3.5 h-3.5 -scale-x-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. INTERACTIVE PRODUCT CONFIGURATOR & BUNDLE SELECTOR (High-Conversion Core) -->
+    <section id="order-section" class="reveal-on-scroll py-12 md:py-16 bg-white border-y border-sheon-border">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <span class="text-xs font-bold text-sheon-burgundy bg-sheon-burgundyLight px-3.5 py-1.5 rounded-full border border-sheon-burgundy/15">
+            عرض خاص وتوفير مضاعف
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-sheon-dark mt-3 mb-2">
+            اختاري باقتك المفضلة واستمتعي بأكبر توفير
+          </h2>
+          <p class="text-xs sm:text-sm text-neutral-500">
+            الشميز بيلبس جميع الأوزان من 70 حتى 110 كجم بمرونة تامة. اختاري عدد القطع وحددي ألوانك المفضلة للدفع عند الاستلام.
+          </p>
+        </div>
+
+        <!-- ===== ORDER PROGRESS BAR ===== -->
+        <div class="max-w-lg mx-auto mb-10">
+          <div class="order-step-bar">
+            <div class="order-step-item completed active-step" id="prog-step-1">
+              <div class="order-step-icon active" id="prog-icon-1">١</div>
+              <span class="order-step-label">اختاري الباقة</span>
+            </div>
+            <div class="order-step-item" id="prog-step-2">
+              <div class="order-step-icon" id="prog-icon-2">٢</div>
+              <span class="order-step-label">اختاري الألوان</span>
+            </div>
+            <div class="order-step-item" id="prog-step-3">
+              <div class="order-step-icon" id="prog-icon-3">٣</div>
+              <span class="order-step-label">بيانات الشحن</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- LEFT: Interactive Visualizer & Color Details (5 Cols) -->
+          <div class="lg:col-span-5 space-y-4 lg:sticky lg:top-24">
+            <div class="bg-sheon-bg rounded-2xl p-4 sm:p-5 border border-sheon-border shadow-xs">
+              
+              <div class="flex items-center justify-between mb-3 border-b border-sheon-border pb-2.5">
+                <span class="text-xs sm:text-sm font-bold text-sheon-dark">معاينة القطعة باللون المختار</span>
+                <span id="config-color-badge" class="text-xs font-bold text-sheon-burgundy bg-sheon-burgundyLight px-3 py-1 rounded-full border border-sheon-burgundy/20">بيرجندي ملكي</span>
+              </div>
+
+              <!-- Main Visual Display Canvas -->
+              <div id="configurator-canvas" class="aspect-[3/4] w-full rounded-xl bg-white border border-sheon-border overflow-hidden relative flex items-center justify-center p-3 shadow-inner">
+                <!-- Dynamic SVG or Photo Injected -->
+              </div>
+
+              <!-- Exact Garment Measurement Chips -->
+              <div class="mt-3.5 bg-white p-3.5 rounded-xl border border-sheon-border text-xs space-y-2.5 shadow-xs">
+                <div class="flex items-center justify-between border-b border-sheon-border/60 pb-2">
+                  <span class="font-bold text-sheon-dark text-xs sm:text-sm flex items-center gap-1.5">
+                    <span>📐</span> أبعاد ومقاسات الشميز بالسنتيمتر:
+                  </span>
+                  <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                    One Size (70 إلى 110 كجم)
+                  </span>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                  <div class="bg-sheon-bg p-2.5 rounded-xl text-center flex flex-col justify-center">
+                    <span class="text-neutral-500 font-medium text-xs">محيط الصدر</span>
+                    <strong class="text-sheon-dark text-sm sm:text-base font-black mt-0.5">140 <span class="text-xs font-bold text-neutral-400">سم</span></strong>
+                  </div>
+                  <div class="bg-sheon-bg p-2.5 rounded-xl text-center flex flex-col justify-center">
+                    <span class="text-neutral-500 font-medium text-xs">الطول الخلفي</span>
+                    <strong class="text-sheon-burgundy text-sm sm:text-base font-black mt-0.5">90 <span class="text-xs font-bold text-sheon-burgundy/60">سم</span></strong>
+                  </div>
+                  <div class="bg-sheon-bg p-2.5 rounded-xl text-center flex flex-col justify-center">
+                    <span class="text-neutral-500 font-medium text-xs">الطول الأمامي</span>
+                    <strong class="text-sheon-dark text-sm sm:text-base font-black mt-0.5">80 <span class="text-xs font-bold text-neutral-400">سم</span></strong>
+                  </div>
+                  <div class="bg-sheon-bg p-2.5 rounded-xl text-center flex flex-col justify-center">
+                    <span class="text-neutral-500 font-medium text-xs">طول الكم</span>
+                    <strong class="text-sheon-dark text-sm sm:text-base font-black mt-0.5">62 <span class="text-xs font-bold text-neutral-400">سم</span></strong>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Size Guarantee Card -->
+            <div class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-xs shadow-xs">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center shrink-0 font-bold">
+                  ✓
+                </div>
+                <div>
+                  <h4 class="font-bold text-amber-950 text-xs sm:text-sm mb-0.5">ضمان المقاس والمعاينة الكاملة</h4>
+                  <p class="text-amber-900/90 leading-relaxed text-xs">
+                    بفضل قصته الأوفر سايز والأربطة الجانبية المرنة، يناسب بامتياز من 70 حتى 110 كجم. يحق لكِ تجربة وفحص المنتج مع المندوب قبل دفع جنيه واحد!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: Bundle Selector, Color Customization & Order Form (7 Cols) -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Step 1: Bundle Selection Cards -->
+            <div>
+              <div class="flex items-center justify-between mb-3.5">
+                <h3 class="text-sm sm:text-base font-bold text-sheon-dark flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-sheon-dark text-white text-xs flex items-center justify-center font-bold">1</span>
+                  اختاري الباقة المناسبة لكِ:
+                </h3>
+                <span class="text-xs text-sheon-burgundy font-bold">كل ما زادت القطع زاد التوفير!</span>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4" id="bundle-cards-container">
+                
+                <!-- BUNDLE 1: Single Piece -->
+                <div onclick="selectBundle(1)" id="bundle-card-1" class="bundle-card cursor-pointer rounded-2xl p-4 sm:p-5 border-2 transition-all relative bg-white border-sheon-border hover:border-sheon-dark/40 flex flex-col justify-between shadow-xs">
+                  <div>
+                    <div class="mb-3 text-center">
+                      <span class="text-xs font-bold text-neutral-600 bg-neutral-100 px-3 py-1 rounded-full inline-block">قطعة تجربة (خصم 20%)</span>
+                    </div>
+                    <h4 class="text-base font-bold text-sheon-dark mb-0.5">قطعة واحدة</h4>
+                    <p class="text-xs text-neutral-500 mb-2">لتجربة المقاس والخامة</p>
+                    <div class="flex items-baseline justify-between my-2">
+                      <div class="flex items-baseline gap-1.5">
+                        <span class="text-2xl sm:text-3xl font-black text-sheon-dark">650</span>
+                        <span class="text-xs font-bold text-neutral-500">جنيه</span>
+                      </div>
+                      <span class="text-xs text-neutral-400 line-through">800 جنيه</span>
+                    </div>
+                  </div>
+                  <div class="mt-3 pt-2.5 border-t border-sheon-border text-xs text-neutral-500 flex items-center justify-between">
+                    <span>وفرتي 150 جنيه</span>
+                    <span class="text-neutral-500">شحن عادي</span>
+                  </div>
+                </div>
+
+                <!-- BUNDLE 2: 2 Pieces (MOST POPULAR) -->
+                <div onclick="selectBundle(2)" id="bundle-card-2" class="bundle-card cursor-pointer rounded-2xl p-4 sm:p-5 border-2 transition-all relative bg-sheon-burgundyLight/30 border-sheon-burgundy shadow-md flex flex-col justify-between ring-2 ring-sheon-burgundy/20">
+                  <div>
+                    <div class="mb-3 text-center">
+                      <span class="text-xs font-bold text-white bg-sheon-burgundy px-3 py-1 rounded-full shadow-xs inline-block">الأكثر طلباً ⭐ + شحن مجاني 🎁</span>
+                    </div>
+                    <h4 class="text-base font-bold text-sheon-dark mb-0.5">باك قطعتين</h4>
+                    <p class="text-xs text-sheon-burgundy font-semibold mb-2">القطعة بـ 600 جنيه فقط</p>
+                    <div class="flex items-baseline justify-between my-2">
+                      <div class="flex items-baseline gap-1.5">
+                        <span class="text-2xl sm:text-3xl font-black text-sheon-burgundy">1,200</span>
+                        <span class="text-xs font-bold text-sheon-burgundy">جنيه</span>
+                      </div>
+                      <span class="text-xs text-neutral-400 line-through">1,600 جنيه</span>
+                    </div>
+                  </div>
+                  <div class="mt-3 pt-2.5 border-t border-sheon-burgundy/20 text-xs font-bold text-sheon-burgundy flex items-center justify-between">
+                    <span>وفرتي 400 جنيه 🔥</span>
+                    <span class="text-emerald-700">توصيل مجاني 🎁</span>
+                  </div>
+                </div>
+
+                <!-- BUNDLE 3: 3 Pieces (BEST VALUE) -->
+                <div onclick="selectBundle(3)" id="bundle-card-3" class="bundle-card cursor-pointer rounded-2xl p-4 sm:p-5 border-2 transition-all relative bg-white border-sheon-border hover:border-sheon-dark/40 flex flex-col justify-between shadow-xs">
+                  <div>
+                    <div class="mb-3 text-center">
+                      <span class="text-xs font-bold text-white bg-sheon-olive px-3 py-1 rounded-full shadow-xs inline-block">أكبر توفير 🔥 33% + شحن مجاني 🎁</span>
+                    </div>
+                    <h4 class="text-base font-bold text-sheon-dark mb-0.5">باك 3 قطع</h4>
+                    <p class="text-xs text-emerald-800 font-semibold mb-2">القطعة بـ 533 جنيه فقط!</p>
+                    <div class="flex items-baseline justify-between my-2">
+                      <div class="flex items-baseline gap-1.5">
+                        <span class="text-2xl sm:text-3xl font-black text-sheon-dark">1,600</span>
+                        <span class="text-xs font-bold text-neutral-500">جنيه</span>
+                      </div>
+                      <span class="text-xs text-neutral-400 line-through">2,400 جنيه</span>
+                    </div>
+                  </div>
+                  <div class="mt-3 pt-2.5 border-t border-sheon-border text-xs font-bold text-emerald-700 flex items-center justify-between">
+                    <span>وفرتي 800 جنيه كاملة!</span>
+                    <span class="text-emerald-700">توصيل مجاني 🎁</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Step 2: Dynamic Color Pickers for Selected Bundle -->
+            <div class="bg-sheon-bg rounded-2xl p-4 sm:p-5 border border-sheon-border shadow-xs">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-sm sm:text-base font-bold text-sheon-dark flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-sheon-dark text-white text-xs flex items-center justify-center font-bold">2</span>
+                  <span>حددي ألوان القطع لباقة: <strong id="selected-bundle-title" class="text-sheon-burgundy">قطعتين</strong></span>
+                </h3>
+                <span class="text-xs text-neutral-500 font-medium" id="color-instruction-note">
+                  يمكنك اختيار ألوان مختلفة أو متطابقة
+                </span>
+              </div>
+
+              <!-- Color Selectors Container -->
+              <div id="dynamic-color-selectors" class="space-y-3.5"></div>
+            </div>
+
+            <!-- Step 3: Fast Order Confirmation Form with Add-ons and WhatsApp Sync -->
+            <div class="bg-white rounded-2xl p-5 sm:p-7 border border-sheon-border shadow-sm">
+              <h3 class="text-sm sm:text-base font-bold text-sheon-dark flex items-center gap-2 mb-5">
+                <span class="w-5 h-5 rounded-full bg-sheon-dark text-white text-xs flex items-center justify-center font-bold">3</span>
+                <span>بيانات الشحن والاستلام (الدفع عند الاستلام بعد المعاينة)</span>
+              </h3>
+
+              <form id="order-form" onsubmit="handleOrderSubmit(event)" class="space-y-4">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="customer-name" class="block text-xs sm:text-sm font-bold text-sheon-dark mb-1.5 text-right">
+                      الاسم بالكامل <span class="text-sheon-burgundy font-bold">*</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      id="customer-name" 
+                      required 
+                      dir="rtl"
+                      placeholder="اكتبي اسمك بالكامل" 
+                      class="w-full px-4 py-3.5 text-sm bg-sheon-bg/70 focus:bg-white border border-sheon-border rounded-xl focus:outline-none focus:ring-2 focus:ring-sheon-burgundy/20 focus:border-sheon-burgundy transition-all text-right placeholder:text-neutral-400 shadow-xs font-medium"
+                    />
+                  </div>
+                  <div>
+                    <label for="customer-phone" class="block text-xs sm:text-sm font-bold text-sheon-dark mb-1.5 text-right">
+                      رقم الموبايل للتواصل <span class="text-sheon-burgundy font-bold">*</span>
+                    </label>
+                    <input 
+                      type="tel" 
+                      id="customer-phone" 
+                      required 
+                      dir="rtl"
+                      placeholder="01012345678 (متاح واتساب)" 
+                      class="w-full px-4 py-3.5 text-sm bg-sheon-bg/70 focus:bg-white border border-sheon-border rounded-xl focus:outline-none focus:ring-2 focus:ring-sheon-burgundy/20 focus:border-sheon-burgundy transition-all text-right placeholder:text-neutral-400 font-mono tracking-wide shadow-xs font-medium"
+                    />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="customer-gov" class="block text-xs sm:text-sm font-bold text-sheon-dark mb-1.5 text-right">
+                      المحافظة وتكلفة الشحن <span class="text-sheon-burgundy font-bold">*</span>
+                    </label>
+                    <div class="relative">
+                      <select 
+                        id="customer-gov" 
+                        onchange="updateShippingCalc()" 
+                        required 
+                        dir="rtl"
+                        class="w-full pl-9 pr-3.5 py-3 text-xs sm:text-sm bg-sheon-bg/70 hover:bg-white focus:bg-white border border-sheon-border rounded-xl focus:outline-none focus:ring-2 focus:ring-sheon-burgundy/20 focus:border-sheon-burgundy transition-all text-right appearance-none font-semibold cursor-pointer shadow-xs text-sheon-dark"
+                      >
+                        <option value="cairo_giza" selected>القاهرة والجيزة (شحن 60 ج)</option>
+                        <option value="alex">الإسكندرية ومطروح (شحن 80 ج)</option>
+                        <option value="delta">الدلتا والوجه البحري (شحن 80 ج)</option>
+                        <option value="canal">القناة والسويس وبورسعيد (شحن 80 ج)</option>
+                        <option value="upper">الصعيد والوجه القبلي (شحن 80 ج)</option>
+                        <option value="other">باقي المحافظات (شحن 80 ج)</option>
+                      </select>
+                      <div class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500 flex items-center">
+                        <svg class="w-4 h-4 text-sheon-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <span class="text-[11px] text-neutral-500 block mt-1">توصيل القاهرة والجيزة 24-48 ساعة، والمحافظات 48-72 ساعة</span>
+                  </div>
+
+                  <div>
+                    <label for="customer-address" class="block text-xs sm:text-sm font-bold text-sheon-dark mb-1.5 text-right">
+                      العنوان بالتفصيل للمندوب <span class="text-sheon-burgundy font-bold">*</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      id="customer-address" 
+                      required 
+                      dir="rtl"
+                      placeholder="المدينة، الحي أو المنطقة، اسم الشارع، رقم العمارة" 
+                      class="w-full px-4 py-3.5 text-sm bg-sheon-bg/70 focus:bg-white border border-sheon-border rounded-xl focus:outline-none focus:ring-2 focus:ring-sheon-burgundy/20 focus:border-sheon-burgundy transition-all text-right placeholder:text-neutral-400 shadow-xs font-medium"
+                    />
+                  </div>
+                </div>
+
+                <!-- Payment Method Preference -->
+                <div class="p-4 rounded-2xl bg-sheon-bg border border-sheon-border space-y-2.5">
+                  <span class="font-bold text-sheon-dark block text-xs sm:text-sm text-right">طريقة الدفع عند الاستلام:</span>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    
+                    <label id="pay-cod-card" class="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-sheon-dark cursor-pointer transition-all hover:shadow-xs text-right">
+                      <input type="radio" name="payment_method" value="cod" checked onchange="updatePaymentCardStyles()" class="accent-sheon-burgundy w-4 h-4 cursor-pointer" />
+                      <div class="flex flex-col">
+                        <span class="text-xs sm:text-sm font-bold text-sheon-dark">كاش عند باب البيت</span>
+                        <span class="text-xs text-emerald-700 font-semibold">بعد فتح الشحنة والفحص ✓</span>
+                      </div>
+                    </label>
+
+                    <label id="pay-insta-card" class="flex items-center gap-3 p-3.5 rounded-xl bg-white border-2 border-sheon-border cursor-pointer transition-all hover:border-sheon-dark/50 text-right">
+                      <input type="radio" name="payment_method" value="instapay" onchange="updatePaymentCardStyles()" class="accent-sheon-burgundy w-4 h-4 cursor-pointer" />
+                      <div class="flex flex-col">
+                        <span class="text-xs sm:text-sm font-bold text-sheon-dark">إنستاباي أو محفظة</span>
+                        <span class="text-xs text-sheon-burgundy font-bold">خصم 20 جنيه إضافي على الشحن ⚡</span>
+                      </div>
+                    </label>
+
+                  </div>
+                </div>
+
+                <!-- Optional Note -->
+                <div>
+                  <label for="customer-notes" class="block text-xs font-semibold text-neutral-600 mb-1 text-right">
+                    ملاحظات أو مواعيد مفضلة للاستلام (اختياري)
+                  </label>
+                  <input 
+                    type="text" 
+                    id="customer-notes" 
+                    dir="rtl"
+                    placeholder="مثال: يرجى الاتصال قبل الوصول بنصف ساعة" 
+                    class="w-full px-4 py-3 text-xs sm:text-sm bg-sheon-bg/70 focus:bg-white border border-sheon-border rounded-xl focus:outline-none focus:border-sheon-dark transition-all text-right placeholder:text-neutral-400"
+                  />
+                </div>
+
+                <!-- Live Price Breakdown Receipt -->
+                <div class="bg-sheon-bg rounded-2xl p-4 sm:p-5 border border-sheon-border text-xs sm:text-sm space-y-2.5 mt-4 shadow-xs">
+                  <div class="flex justify-between items-center text-neutral-700 py-1.5 border-b border-sheon-border/60">
+                    <span id="receipt-bundle-name" class="font-medium">سعر باقة القطعتين:</span>
+                    <span id="receipt-subtotal" class="font-bold text-sheon-dark text-sm sm:text-base">1,200 جنيه</span>
+                  </div>
+                  <div class="flex justify-between items-center text-neutral-700 py-1.5 border-b border-sheon-border/60">
+                    <span class="font-medium">المقاس الموحد:</span>
+                    <span class="font-bold text-sheon-dark bg-white px-3 py-1 rounded-full border border-sheon-border text-xs whitespace-nowrap" dir="rtl">
+                      One Size حر (70 حتى 110 كجم)
+                    </span>
+                  </div>
+                  <div class="flex justify-between items-center text-neutral-700 py-1.5 border-b border-sheon-border/60">
+                    <span id="receipt-shipping-label" class="font-medium">مصاريف الشحن:</span>
+                    <span id="receipt-shipping" class="font-bold"></span>
+                  </div>
+                  <div class="flex justify-between items-center text-sheon-burgundy py-1.5 font-semibold text-xs sm:text-sm">
+                    <span>قيمة الخصم المباشر والتوفير:</span>
+                    <span id="receipt-savings" class="font-bold whitespace-nowrap">وفرتي 460 جنيه (شحن مجاني)</span>
+                  </div>
+                  <div class="pt-2.5 border-t border-sheon-border flex justify-between items-center text-sm sm:text-base font-black text-sheon-dark">
+                    <span>الإجمالي المستحق عند الاستلام:</span>
+                    <span id="receipt-total" class="text-xl sm:text-2xl text-sheon-burgundy font-black">1,200 جنيه</span>
+                  </div>
+                </div>
+
+                <!-- Submit CTA Button -->
+                <button 
+                  type="submit" 
+                  class="w-full py-4 px-6 rounded-xl font-bold text-sm sm:text-base text-white bg-sheon-burgundy hover:bg-[#52131B] transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2.5 group cursor-pointer"
+                >
+                  <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0">
+                    <svg class="w-4 h-4 fill-current text-emerald-400" viewBox="0 0 24 24">
+                      <path d="M12.031 2C6.495 2 2 6.495 2 12.031a9.98 9.98 0 001.378 5.068L2 22l5.068-1.378a9.988 9.988 0 004.963 1.409h.005c5.536 0 10.031-4.495 10.031-10.031A10.031 10.031 0 0012.031 2zm0 18.25a8.214 8.214 0 01-4.195-1.144l-.301-.179-3.118.848.848-3.118-.179-.301a8.21 8.21 0 01-1.255-4.225c0-4.542 3.696-8.238 8.238-8.238 4.542 0 8.238 3.696 8.238 8.238 0 4.542-3.696 8.238-8.238 8.238zm4.512-6.177c-.247-.124-1.464-.722-1.691-.805-.227-.082-.392-.124-.557.124-.165.247-.64 1.01-.784 1.175-.144.165-.289.185-.536.062-.247-.124-1.042-.384-1.986-1.226-.733-.654-1.228-1.463-1.372-1.71-.144-.247-.015-.38.109-.503.111-.111.247-.289.371-.433.124-.144.165-.247.247-.412.082-.165.041-.309-.021-.433-.062-.124-.557-1.34-.763-1.835-.201-.482-.405-.417-.557-.425l-.474-.008c-.165 0-.433.062-.66.309-.227.247-.866.845-.866 2.062 0 1.216.887 2.392 1.01 2.557.124.165 1.745 2.665 4.228 3.738.591.256 1.053.409 1.413.523.594.189 1.135.162 1.562.099.477-.071 1.464-.598 1.67-1.175.206-.577.206-1.072.144-1.175-.062-.103-.227-.165-.474-.289z"/>
+                    </svg>
+                  </span>
+                  <span>تأكيد الطلب وحجز الشحنة الآن</span>
+                  <span class="text-xs bg-black/25 text-white/95 px-2.5 py-0.5 rounded-lg font-normal">معاينة قبل الدفع</span>
+                </button>
+
+                <div class="flex items-center justify-center gap-2 sm:gap-3 text-xs text-neutral-600 pt-1 flex-wrap">
+                  <span class="inline-flex items-center gap-1.5 bg-sheon-bg px-2.5 py-1 rounded-lg border border-sheon-border">
+                    <span class="text-emerald-700 font-bold">✓</span>
+                    <span>بدون دفع مسبق</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 bg-sheon-bg px-2.5 py-1 rounded-lg border border-sheon-border">
+                    <span class="text-emerald-700 font-bold">✓</span>
+                    <span>حق الفحص والمعاينة</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 bg-sheon-bg px-2.5 py-1 rounded-lg border border-sheon-border">
+                    <span class="text-emerald-700 font-bold">✓</span>
+                    <span>استبدال مجاني إن وُجد عيب</span>
+                  </span>
+                </div>
+
+              </form>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. PRODUCT ANATOMY / WHY YOU'LL LOVE IT -->
+    <section class="py-12 md:py-16 bg-sheon-bg">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <span class="text-xs font-bold text-sheon-dark bg-white px-3.5 py-1.5 rounded-full border border-sheon-border shadow-xs">
+            مواصفات وتفاصيل الصناعة
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-sheon-dark mt-3 mb-2">
+            لماذا تختارين شميز الكتان الإسباني من SHEON؟
+          </h2>
+          <p class="text-xs sm:text-sm text-neutral-500">
+            كل غرزة وتفصيلة صُنعت بعناية لتقديم التوازن المثالي بين الاحتشام المريح والأناقة الأوروبية.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-sheon-border hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-sheon-burgundyLight text-sheon-burgundy flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-sheon-dark mb-2">100% كتان إسباني أصلي</h3>
+            <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+              خامة طبيعية ناعمة وخفيفة على البشرة، تسمح بمرور الهواء وتمنع التعرق حتى في أشد درجات الحرارة. خامة متماسكة لا تشف مع ثبات الألوان بعد الغسيل.
+            </p>
+          </div>
+
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-sheon-border hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-sheon-oliveLight text-sheon-olive flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-sheon-dark mb-2">أربطة جانبية لتعديل اللوك</h3>
+            <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+              تحكمي في اتساع الجوانب كما تحبين! يمكنك شد الرباط لقصة مجسمة ومحددة، أو تركه منسدلاً للوك أوفر سايز كاجوال ومريح.
+            </p>
+          </div>
+
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-sheon-border hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-sheon-beigeLight text-sheon-beige flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
+              </svg>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-sheon-dark mb-2">قصة دائرية ساترة ومحتشمة</h3>
+            <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+              طول مناسب جداً (90 سم من الخلف) مع كيرف دائري أنيق يغطي منطقة الأرداف بالكامل، ليعطيكِ حرية الحركة وثقة تامة للمحجبات وغير المحجبات.
+            </p>
+          </div>
+
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-sheon-border hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-sheon-dark mb-2">معاينة وقياس عند باب البيت</h3>
+            <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+              ثقتنا في جودة منتجنا مطلقة: المندوب ينتظركِ لتفتحي الشحنة وتعاينين الكتان والخياطة واللون بنفسك قبل دفع جنيه واحد!
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. SHIPPING & ASSURANCE GUARANTEE BOX -->
+    <section class="py-12 bg-white border-t border-sheon-border">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="bg-sheon-bg rounded-2xl p-6 sm:p-8 border border-sheon-border shadow-xs">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-y-0 md:divide-x md:divide-x-reverse divide-sheon-border">
+            
+            <div class="pt-4 md:pt-0 md:px-4 flex flex-col items-center text-center">
+              <div class="w-10 h-10 rounded-xl bg-sheon-dark text-white flex items-center justify-center mb-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/>
+                </svg>
+              </div>
+              <h4 class="text-sm sm:text-base font-bold text-sheon-dark mb-1">شحن سريع ومخفض</h4>
+              <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                القاهرة والجيزة: <strong class="text-sheon-dark font-sans">60 جنيه فقط</strong><br/>
+                جميع المحافظات: <strong class="text-sheon-dark font-sans">80 جنيه</strong> والتوصيل خلال 48-72 ساعة.
+              </p>
+            </div>
+
+            <div class="pt-4 md:pt-0 md:px-4 flex flex-col items-center text-center">
+              <div class="w-10 h-10 rounded-xl bg-emerald-700 text-white flex items-center justify-center mb-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h4 class="text-sm sm:text-base font-bold text-sheon-dark mb-1">حق المعاينة والفحص الكامل</h4>
+              <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                المندوب ملزم بالانتظار حتى تتأكدي من تطابق الألوان وجودة الكتان الإسباني ونعومته قبل تسليم المبلغ.
+              </p>
+            </div>
+
+            <div class="pt-4 md:pt-0 md:px-4 flex flex-col items-center text-center">
+              <div class="w-10 h-10 rounded-xl bg-sheon-burgundy text-white flex items-center justify-center mb-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+              </div>
+              <h4 class="text-sm sm:text-base font-bold text-sheon-dark mb-1">سياسة استبدال واسترجاع مريحة</h4>
+              <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                استبدال فوري خلال 14 يوماً مع فريق دعم متواجد على الواتساب طوال أيام الأسبوع لخدمتكِ.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. REAL CUSTOMER REVIEWS -->
+    <section class="reveal-on-scroll py-12 bg-sheon-bg border-t border-sheon-border">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-xl mx-auto mb-8">
+          <span class="text-xs font-bold text-sheon-dark bg-white px-3.5 py-1.5 rounded-full border border-sheon-border shadow-xs">
+            ريفيوهات البنات
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-sheon-dark mt-3 mb-1">
+            رأي البنات في SHEON
+          </h2>
+          <p class="text-xs sm:text-sm text-neutral-500">تجارب حقيقية بعد المعاينة والاستلام</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-sheon-border flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex items-center justify-between mb-3.5">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-xl bg-sheon-burgundy text-white text-xs font-bold flex items-center justify-center">ن</div>
+                  <div>
+                    <h4 class="text-xs sm:text-sm font-bold text-sheon-dark">نورهان عبد الفتاح</h4>
+                    <span class="text-xs text-neutral-500">القاهرة · اشترت باقة القطعتين</span>
+                  </div>
+                </div>
+                <div class="text-amber-500 text-xs font-bold">★★★★★</div>
+              </div>
+              <p class="text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal">
+                "الخامة مريحة أوي ومش بتشف خالص، كنت قلقانة من النقطة دي بس طلعت ممتازة بجد. اللون البيرجندي شيك في اللبس ومريح في الصيف، وتسلموا على سرعة التوصيل وذوق المندوب."
+              </p>
+            </div>
+            <div class="mt-4 pt-2.5 border-t border-sheon-border/60 text-xs text-emerald-700 flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>تمت المعاينة والاستلام</span>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-sheon-border flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex items-center justify-between mb-3.5">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-xl bg-sheon-olive text-white text-xs font-bold flex items-center justify-center">د</div>
+                  <div>
+                    <h4 class="text-xs sm:text-sm font-bold text-sheon-dark">د. ميار السعيد</h4>
+                    <span class="text-xs text-neutral-500">الإسكندرية · اشترت باقة 3 قطع</span>
+                  </div>
+                </div>
+                <div class="text-amber-500 text-xs font-bold">★★★★★</div>
+              </div>
+              <p class="text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal">
+                "طلبت الـ 3 ألوان مع بعض واستفدت بالخصم، الألوان في الحقيقة هادية وجميلة، والأربطة اللي في الجنب فكرتها حلوة بتظبط المقاس سواء هلبسه على بنطلون أو جيبة."
+              </p>
+            </div>
+            <div class="mt-4 pt-2.5 border-t border-sheon-border/60 text-xs text-emerald-700 flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>تمت المعاينة والاستلام</span>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-sheon-border flex flex-col justify-between shadow-xs">
+            <div>
+              <div class="flex items-center justify-between mb-3.5">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-xl bg-sheon-beige text-white text-xs font-bold flex items-center justify-center">هـ</div>
+                  <div>
+                    <h4 class="text-xs sm:text-sm font-bold text-sheon-dark">هدير طارق</h4>
+                    <span class="text-xs text-neutral-500">المنصورة · اشترت قطعة واحدة ثم طلبت قطعتين</span>
+                  </div>
+                </div>
+                <div class="text-amber-500 text-xs font-bold">★★★★★</div>
+              </div>
+              <p class="text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal">
+                "المقاس طلع مظبوط ومرتاح جداً، كنت خايفة عشان وزني فوق الـ 90 بس بجد واسع وساتر ومريح في الحركة ومبيفصلش. طلبت قطعتين كمان لمامتي وأختي."
+              </p>
+            </div>
+            <div class="mt-4 pt-2.5 border-t border-sheon-border/60 text-xs text-emerald-700 flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>تمت المعاينة والاستلام</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FAQ ACCORDION -->
+    <section class="reveal-on-scroll py-14 sm:py-16 bg-[#FDFBF9] border-t border-sheon-border">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-8 sm:mb-10">
+          <span class="inline-block text-xs font-bold text-sheon-burgundy bg-sheon-burgundyLight px-3.5 py-1 rounded-full border border-sheon-burgundy/20 mb-2.5">
+            إجابات واضحة ومباشرة
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-sheon-dark">الأسئلة الشائعة</h2>
+          <p class="text-xs sm:text-sm text-neutral-500 mt-1 max-w-md mx-auto">كل ما يهمك معرفته عن المقاس، خامة الكتان، وسياسة المعاينة قبل الدفع</p>
+        </div>
+
+        <div class="space-y-3" id="faq-list">
+          
+          <div class="bg-white rounded-2xl border border-sheon-border shadow-xs hover:border-sheon-burgundy/40 transition-all overflow-hidden">
+            <button type="button" onclick="toggleFaq(1)" class="w-full p-4 sm:p-5 text-right font-bold text-xs sm:text-sm md:text-base text-sheon-dark flex justify-between items-center gap-3 sm:gap-4 hover:bg-neutral-50/50 transition-colors cursor-pointer">
+              <span class="leading-snug">كيف أتأكد أن المقاس One Size سيناسبني؟</span>
+              <span id="faq-icon-1" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-sheon-bg border border-sheon-border text-sheon-dark flex items-center justify-center font-bold text-base shrink-0 transition-colors">+</span>
+            </button>
+            <div id="faq-body-1" class="hidden px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-neutral-600 leading-relaxed border-t border-sheon-border/40 font-normal">
+              الشميز مصمم بقصة Oversized مدروسة بعناية فائقة بعرض 140 سم ومزود بأربطة جانبية تسمح بالتحكم الدقيق في التجسيم أو التوسيع. يناسب بمرونة وراحة تامة الأوزان بين 70 و110 كجم. والأهم أنكِ ستعاينين القطعة وتتأكدين منها عند الاستلام!
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-sheon-border shadow-xs hover:border-sheon-burgundy/40 transition-all overflow-hidden">
+            <button type="button" onclick="toggleFaq(2)" class="w-full p-4 sm:p-5 text-right font-bold text-xs sm:text-sm md:text-base text-sheon-dark flex justify-between items-center gap-3 sm:gap-4 hover:bg-neutral-50/50 transition-colors cursor-pointer">
+              <span class="leading-snug">هل خامة الكتان الإسباني تشف أو تنكمش بعد الغسيل؟</span>
+              <span id="faq-icon-2" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-sheon-bg border border-sheon-border text-sheon-dark flex items-center justify-center font-bold text-base shrink-0 transition-colors">+</span>
+            </button>
+            <div id="faq-body-2" class="hidden px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-neutral-600 leading-relaxed border-t border-sheon-border/40 font-normal">
+              الكتان المستخدم هو كتان إسباني معالج مسبقاً (Pre-washed)، ذو نسيج متماسك لا يشف تماماً في جميع الألوان حتى الأبيض الناصع، ولا ينكمش نهائياً عند اتباع تعليمات الغسيل بماء بارد أو فاتر.
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-sheon-border shadow-xs hover:border-sheon-burgundy/40 transition-all overflow-hidden">
+            <button type="button" onclick="toggleFaq(3)" class="w-full p-4 sm:p-5 text-right font-bold text-xs sm:text-sm md:text-base text-sheon-dark flex justify-between items-center gap-3 sm:gap-4 hover:bg-neutral-50/50 transition-colors cursor-pointer">
+              <span class="leading-snug">ماذا يعني "حق المعاينة وفتح الشحنة قبل الدفع"؟</span>
+              <span id="faq-icon-3" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-sheon-bg border border-sheon-border text-sheon-dark flex items-center justify-center font-bold text-base shrink-0 transition-colors">+</span>
+            </button>
+            <div id="faq-body-3" class="hidden px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-neutral-600 leading-relaxed border-t border-sheon-border/40 font-normal">
+              عند وصول مندوب الشحن لمنزلك، يحق لكِ فتح الشحنة وفحص الكتان والتأكد من الألوان والخياطة. إذا لم يعجبكِ المنتج لأي سبب، يمكنكِ رفض الاستلام مع دفع رسوم الشحن فقط، دون أي التزام مالي آخر.
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-sheon-border shadow-xs hover:border-sheon-burgundy/40 transition-all overflow-hidden">
+            <button type="button" onclick="toggleFaq(4)" class="w-full p-4 sm:p-5 text-right font-bold text-xs sm:text-sm md:text-base text-sheon-dark flex justify-between items-center gap-3 sm:gap-4 hover:bg-neutral-50/50 transition-colors cursor-pointer">
+              <span class="leading-snug">كم يستغرق الشحن والتوصيل؟</span>
+              <span id="faq-icon-4" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-sheon-bg border border-sheon-border text-sheon-dark flex items-center justify-center font-bold text-base shrink-0 transition-colors">+</span>
+            </button>
+            <div id="faq-body-4" class="hidden px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-neutral-600 leading-relaxed border-t border-sheon-border/40 font-normal">
+              التوصيل للقاهرة والجيزة يستغرق من 24 إلى 48 ساعة فقط (برسوم 60 ج). وباقي محافظات مصر يستغرق التوصيل من 48 إلى 72 ساعة (برسوم 80 ج).
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FOOTER -->
+    <footer class="bg-sheon-dark text-white/70 py-10 border-t border-white/10 text-xs sm:text-sm">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-white text-sheon-dark flex items-center justify-center p-1.5 shadow-sm">
+            <svg viewBox="0 0 100 100" class="w-6 h-6 text-sheon-dark fill-current">
+              <path d="M 20,90 L 20,45 C 20,20 80,20 80,45 L 80,90" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+              <path d="M 65,36 C 65,28 35,28 35,42 C 35,56 68,52 68,68 C 68,82 32,84 32,70 M 50,72 C 45,78 40,78 36,72" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-white font-bold tracking-widest font-brand text-base">SHEON</div>
+            <div class="text-xs text-white/50">أناقة واحتشام بخامة الكتان الإسباني الفاخر</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-white/70 text-xs sm:text-sm">
+          <a href="#order-section" class="hover:text-white transition-colors">طلب الباقة</a>
+          <span>·</span>
+          <a href="#lookbook-section" class="hover:text-white transition-colors">معرض الصور</a>
+          <span>·</span>
+          <a href="https://wa.me/201006626593" target="_blank" class="hover:text-white transition-colors">خدمة العملاء (01006626593)</a>
+          <span>·</span>
+          <span>القاهرة، مصر</span>
+        </div>
+
+        <div class="text-xs text-white/40">
+          جميع الحقوق محفوظة © 2026 براند SHEON.
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- 12. STICKY CTA BAR (All Screens) -->
+    <div id="sticky-order-cta" class="bg-white/98 backdrop-blur-md border-t-2 border-sheon-burgundy/30 shadow-2xl">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+        <div class="flex items-center justify-between gap-4">
+          
+          <!-- Left: Price Info -->
+          <div class="flex items-center gap-4">
+            <div class="hidden sm:flex items-center gap-2">
+              <div class="w-9 h-9 rounded-xl bg-sheon-burgundyLight text-sheon-burgundy flex items-center justify-center text-base font-black">🛒</div>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-xs text-neutral-600 font-bold leading-tight" id="mobile-sticky-title">باقة قطعتين (الأكثر طلباً)</span>
+              <div class="flex items-baseline gap-2 mt-0.5">
+                <span class="text-base sm:text-xl font-black text-sheon-burgundy" id="mobile-sticky-price">1,200 جنيه</span>
+                <span class="text-xs text-neutral-400 line-through" id="mobile-sticky-oldprice">1,600 جنيه</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Center: Trust Badges (hidden on mobile) -->
+          <div class="hidden md:flex items-center gap-4 text-xs text-neutral-600 font-medium">
+            <span class="flex items-center gap-1.5">
+              <span class="text-emerald-600 font-bold">✓</span> معاينة قبل الدفع
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="text-emerald-600 font-bold">✓</span> شحن مخفض
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="text-emerald-600 font-bold">✓</span> استبدال مجاني
+            </span>
+          </div>
+
+          <!-- Right: CTA Button -->
+          <a href="#order-section" id="sticky-cta-btn" class="shrink-0 bg-sheon-burgundy hover:bg-[#52131B] text-white font-extrabold text-xs sm:text-sm py-3 px-5 sm:px-8 rounded-xl text-center shadow-md active:scale-95 transition-all flex items-center gap-2">
+            <span>اطلبي الآن</span>
+            <svg class="w-3.5 h-3.5 -scale-x-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. FLOATING WHATSAPP ASSISTANT (Immediate Inquiries) -->
+    <aside aria-label="محادثة واتساب" class="fixed bottom-24 sm:bottom-20 right-4 sm:right-6 z-40 flex items-center group">
+      <a 
+        href="https://wa.me/201006626593?text=مرحباً%20SHEON%20عايزة%20استفسر%20عن%20شميز%20الكتان%20الإسباني%20الأوفرسايز" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white pl-4 pr-3 py-2.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 border-2 border-white/90"
+        title="تحدثي مع خدمة العملاء مباشرة عبر واتساب: 01006626593"
+      >
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+        </span>
+        <span class="text-xs font-bold hidden sm:inline">خدمة العملاء (متاحين للرد)</span>
+        <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
+          <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+            <path d="M12.031 2C6.495 2 2 6.495 2 12.031a9.98 9.98 0 001.378 5.068L2 22l5.068-1.378a9.988 9.988 0 004.963 1.409h.005c5.536 0 10.031-4.495 10.031-10.031A10.031 10.031 0 0012.031 2zm0 18.25a8.214 8.214 0 01-4.195-1.144l-.301-.179-3.118.848.848-3.118-.179-.301a8.21 8.21 0 01-1.255-4.225c0-4.542 3.696-8.238 8.238-8.238 4.542 0 8.238 3.696 8.238 8.238 0 4.542-3.696 8.238-8.238 8.238zm4.512-6.177c-.247-.124-1.464-.722-1.691-.805-.227-.082-.392-.124-.557.124-.165.247-.64 1.01-.784 1.175-.144.165-.289.185-.536.062-.247-.124-1.042-.384-1.986-1.226-.733-.654-1.228-1.463-1.372-1.71-.144-.247-.015-.38.109-.503.111-.111.247-.289.371-.433.124-.144.165-.247.247-.412.082-.165.041-.309-.021-.433-.062-.124-.557-1.34-.763-1.835-.201-.482-.405-.417-.557-.425l-.474-.008c-.165 0-.433.062-.66.309-.227.247-.866.845-.866 2.062 0 1.216.887 2.392 1.01 2.557.124.165 1.745 2.665 4.228 3.738.591.256 1.053.409 1.413.523.594.189 1.135.162 1.562.099.477-.071 1.464-.598 1.67-1.175.206-.577.206-1.072.144-1.175-.062-.103-.227-.165-.474-.289z"/>
+          </svg>
+        </div>
+      </a>
+    </aside>
+
+    <!-- 14. ORDER SUCCESS / WHATSAPP MODAL POPUP -->
+    <div id="order-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+      <div class="bg-white rounded-2xl max-w-lg w-full p-6 border border-sheon-border shadow-2xl relative animate-float-soft max-h-[90vh] overflow-y-auto">
+        
+        <button type="button" onclick="closeOrderModal()" class="absolute top-4 left-4 w-8 h-8 rounded-full bg-sheon-bg hover:bg-neutral-200 text-neutral-500 hover:text-sheon-dark flex items-center justify-center text-sm transition-colors">
+          ✕
+        </button>
+
+        <div class="text-center mb-5">
+          <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-2 font-bold text-xl">
+            ✓
+          </div>
+          <div class="inline-block bg-sheon-burgundyLight text-sheon-burgundy font-mono font-bold px-3 py-0.5 rounded-full text-xs mb-1.5 border border-sheon-burgundy/20" id="modal-order-code">
+            كود الطلب: #SH-4091
+          </div>
+          <h3 class="text-lg font-black text-sheon-dark">تم تجهيز تفاصيل طلبك بنجاح!</h3>
+          <p class="text-xs sm:text-sm text-neutral-500 mt-1">
+            اضغطي على الزر أدناه لإرسال الطلب وحجز شحنتك فوراً عبر واتساب مع خدمة العملاء
+          </p>
+        </div>
+
+        <div class="bg-sheon-bg rounded-xl p-4 border border-sheon-border text-xs sm:text-sm space-y-2.5 mb-5">
+          <div class="flex items-center justify-between font-bold text-sheon-dark pb-2 border-b border-sheon-border gap-2">
+            <span class="shrink-0 text-neutral-500 font-medium">الباقة:</span>
+            <span id="modal-bundle-name">-</span>
+          </div>
+          <div class="flex items-center justify-between text-sheon-charcoal gap-2">
+            <span class="shrink-0 text-neutral-500 font-medium">المقاس:</span>
+            <span class="font-bold text-sheon-dark bg-white px-3 py-1 rounded-full border border-sheon-border text-xs whitespace-nowrap" dir="rtl">One Size حر (من 70 حتى 110 كجم)</span>
+          </div>
+          <div class="flex items-start justify-between text-sheon-charcoal gap-2">
+            <span class="shrink-0 text-neutral-500 font-medium">الألوان المختارة:</span>
+            <span id="modal-colors-chosen" class="font-bold text-sheon-burgundy text-left leading-relaxed">-</span>
+          </div>
+          <div class="flex items-center justify-between text-sheon-charcoal gap-2">
+            <span class="shrink-0 text-neutral-500 font-medium">طريقة الدفع:</span>
+            <span id="modal-payment-method" class="font-bold text-sheon-dark text-left">-</span>
+          </div>
+          <div class="flex items-center justify-between text-sheon-charcoal gap-2">
+            <span class="shrink-0 text-neutral-500 font-medium">الاسم:</span>
+            <span id="modal-customer-name">-</span>
+          </div>
+          <div class="flex items-center justify-between text-sheon-charcoal gap-2">
+            <span class="shrink-0 text-neutral-500 font-medium">الموبايل:</span>
+            <span id="modal-customer-phone" dir="ltr" class="font-mono font-bold">-</span>
+          </div>
+          <div class="flex items-start justify-between text-sheon-charcoal gap-2">
+            <span class="shrink-0 text-neutral-500 font-medium">المحافظة والعنوان:</span>
+            <span id="modal-customer-address" class="text-left font-medium leading-relaxed max-w-[280px]">-</span>
+          </div>
+          <div class="flex items-center justify-between text-sheon-charcoal gap-2">
+            <span class="shrink-0 text-neutral-500 font-medium">مصاريف الشحن:</span>
+            <span id="modal-shipping">-</span>
+          </div>
+          <div class="flex items-center justify-between pt-2 border-t border-sheon-border text-sm font-black text-sheon-burgundy gap-2">
+            <span class="shrink-0 text-sheon-dark">الإجمالي المستحق:</span>
+            <span id="modal-total">-</span>
+          </div>
+        </div>
+
+        <div class="space-y-2.5">
+          <a id="modal-whatsapp-link" href="#" target="_blank" class="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 transition-colors shadow-md">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M12.031 2C6.495 2 2 6.495 2 12.031a9.98 9.98 0 001.378 5.068L2 22l5.068-1.378a9.988 9.988 0 004.963 1.409h.005c5.536 0 10.031-4.495 10.031-10.031A10.031 10.031 0 0012.031 2zm0 18.25a8.214 8.214 0 01-4.195-1.144l-.301-.179-3.118.848.848-3.118-.179-.301a8.21 8.21 0 01-1.255-4.225c0-4.542 3.696-8.238 8.238-8.238 4.542 0 8.238 3.696 8.238 8.238 0 4.542-3.696 8.238-8.238 8.238zm4.512-6.177c-.247-.124-1.464-.722-1.691-.805-.227-.082-.392-.124-.557.124-.165.247-.64 1.01-.784 1.175-.144.165-.289.185-.536.062-.247-.124-1.042-.384-1.986-1.226-.733-.654-1.228-1.463-1.372-1.71-.144-.247-.015-.38.109-.503.111-.111.247-.289.371-.433.124-.144.165-.247.247-.412.082-.165.041-.309-.021-.433-.062-.124-.557-1.34-.763-1.835-.201-.482-.405-.417-.557-.425l-.474-.008c-.165 0-.433.062-.66.309-.227.247-.866.845-.866 2.062 0 1.216.887 2.392 1.01 2.557.124.165 1.745 2.665 4.228 3.738.591.256 1.053.409 1.413.523.594.189 1.135.162 1.562.099.477-.071 1.464-.598 1.67-1.175.206-.577.206-1.072.144-1.175-.062-.103-.227-.165-.474-.289z"/>
+            </svg>
+            <span>إرسال تفاصيل الطلب عبر واتساب الآن</span>
+          </a>
+
+          <button type="button" onclick="copyOrderText()" id="copy-btn" class="w-full py-2.5 px-4 bg-sheon-bg hover:bg-neutral-200 text-sheon-dark font-medium text-xs rounded-xl flex items-center justify-center gap-1.5 transition-colors border border-sheon-border">
+            <span>نسخ رسالة الطلب كـ نص</span>
+          </button>
+        </div>
+
+        <p class="text-xs text-center text-neutral-500 mt-3 font-medium">
+          ✓ سيتم الرد عليكِ خلال دقائق لتأكيد موعد خروج الشحنة مع المندوب.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- 14. PURE VANILLA JAVASCRIPT APP LOGIC -->
+    <script>
+      // ===== GOOGLE SHEETS LIVE DATABASE CONFIGURATION =====
+      // رابط الـ Web App الناتج من Google Apps Script المتصل بـ Google Sheets
+      const GOOGLE_SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwtPb6pT6ls7cbtWHX-XtadCve3I-q5x2lM4RV7aaPRMoke-8JWu6Ie6GJXFVmyjRBE-w/exec';
+
+      async function syncOrderToGoogleSheets(orderPayload) {
+        if (!GOOGLE_SHEETS_WEBAPP_URL) {
+          console.info('ℹ️ تنبيه: لم يتم وضع رابط Google Sheets Web App بعد. البيانات جاهزة ومحفوظة محلياً.');
+          return;
+        }
+
+        try {
+          await fetch(GOOGLE_SHEETS_WEBAPP_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'text/plain;charset=utf-8'
+            },
+            body: JSON.stringify(orderPayload)
+          });
+          console.log('✓ تم تسجيل الأوردر بنجاح في Google Sheets:', orderPayload.orderCode);
+        } catch (err) {
+          console.warn('Google Sheets background sync notice:', err);
+        }
+      }
+
+      // PRODUCT & VARIANT STATE DATA
+      const PRODUCT_COLORS = [
+        {
+          id: 'burgundy',
+          nameAr: 'بيرجندي أنيق (Deep Burgundy)',
+          shortName: 'بيرجندي ملكي',
+          hex: '#6A1A24',
+          accent: '#9A2A38',
+          border: '#451016',
+          photoUrl: 'images/burgundy-1.jpg',
+          photoUrlAlt: 'images/burgundy-3.jpg',
+          photos: [
+            'images/burgundy-1.jpg',
+            'images/burgundy-3.jpg',
+            'images/burgundy-4.jpg',
+            'images/burgundy-5.jpg',
+            'images/burgundy-2.jpg'
+          ],
+          toneClass: 'text-[#6A1A24]',
+          lightClass: 'bg-[#6A1A24]'
+        },
+        {
+          id: 'beige',
+          nameAr: 'بيج دافئ (Warm Beige)',
+          shortName: 'بيج دافئ',
+          hex: '#C5A37E',
+          accent: '#DBC3A3',
+          border: '#9A7B56',
+          photoUrl: 'images/beige-1.jpg',
+          photoUrlAlt: 'images/beige-2.jpg',
+          photos: [
+            'images/beige-1.jpg',
+            'images/beige-2.jpg'
+          ],
+          toneClass: 'text-[#9A7B56]',
+          lightClass: 'bg-[#C5A37E]'
+        },
+        {
+          id: 'olive',
+          nameAr: 'زيتي ملكي (Forest Olive)',
+          shortName: 'زيتي ملكي',
+          hex: '#1B3F2F',
+          accent: '#2A5D46',
+          border: '#11291F',
+          photoUrl: 'images/green-2.jpg',
+          photoUrlAlt: 'images/green-1.jpg',
+          photos: [
+            'images/green-2.jpg',
+            'images/green-1.jpg'
+          ],
+          toneClass: 'text-[#1B3F2F]',
+          lightClass: 'bg-[#1B3F2F]'
+        },
+        {
+          id: 'white',
+          nameAr: 'أبيض ناصع (Pure White)',
+          shortName: 'أبيض ناصع',
+          hex: '#F8F9FA',
+          accent: '#E5E7EB',
+          border: '#D1D5DB',
+          photoUrl: 'images/white-1.jpg',
+          photoUrlAlt: 'images/white-2.jpg',
+          photos: [
+            'images/white-1.jpg',
+            'images/white-2.jpg'
+          ],
+          toneClass: 'text-neutral-800',
+          lightClass: 'bg-[#F8F9FA]'
+        }
+      ];
+
+      const BUNDLES = {
+        1: {
+          count: 1,
+          name: 'خيار القطعة الواحدة',
+          shortName: 'قطعة واحدة',
+          price: 650,
+          oldPrice: 800,
+          savings: 150
+        },
+        2: {
+          count: 2,
+          name: 'باقة القطعتين (الأكثر طلباً)',
+          shortName: 'قطعتين',
+          price: 1200,
+          oldPrice: 1600,
+          savings: 400
+        },
+        3: {
+          count: 3,
+          name: 'باقة الـ 3 قطع (عرض التوفير الأكبر)',
+          shortName: '3 قطع',
+          price: 1600,
+          oldPrice: 2400,
+          savings: 800
+        }
+      };
+
+      // APP STATE
+      let state = {
+        selectedBundleId: 2,
+        selectedColors: ['burgundy', 'beige', 'olive'],
+        activePreviewColorId: 'burgundy',
+        activePhotoIndex: 0,
+        visualMode: 'front'
+      };
+
+      // High-End Vector SVG Rendering Function for Spanish Linen Chemise
+      function generateChemisSvg(colorObj, mode = 'front') {
+        const hex = colorObj.hex;
+        const strokeColor = colorObj.id === 'white' ? '#B8B3AB' : '#0F0F0F';
+        const shadowColor = colorObj.id === 'white' ? 'rgba(0,0,0,0.06)' : 'rgba(0,0,0,0.25)';
+        const foldStroke = colorObj.id === 'white' ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.18)';
+        const buttonFill = colorObj.id === 'white' ? '#D1D5DB' : '#FAF8F5';
+        const tieColor = colorObj.id === 'white' ? '#A39D94' : colorObj.accent;
+
+        if (mode === 'side') {
+          return `
+            <svg viewBox="0 0 400 500" class="w-full h-full object-contain filter drop-shadow-md select-none transition-all duration-300">
+              <defs>
+                <linearGradient id="sideGrad_${colorObj.id}" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="${colorObj.accent}"/>
+                  <stop offset="50%" stop-color="${hex}"/>
+                  <stop offset="100%" stop-color="${colorObj.border}"/>
+                </linearGradient>
+              </defs>
+              <rect width="400" height="500" fill="#FBF9F7" rx="12"/>
+              <circle cx="200" cy="220" r="140" fill="rgba(197, 163, 126, 0.08)"/>
+
+              <path d="M 140,80 Q 200,70 240,80 L 260,180 Q 270,300 240,410 Q 180,440 120,410 Q 100,300 120,180 Z" 
+                    fill="url(#sideGrad_${colorObj.id})" stroke="${strokeColor}" stroke-width="2"/>
+
+              <path d="M 120,410 Q 180,440 240,410" fill="none" stroke="${strokeColor}" stroke-width="3"/>
+              <path d="M 180,260 L 180,420" stroke="${strokeColor}" stroke-width="2.5" stroke-dasharray="3 3"/>
+
+              <circle cx="180" cy="280" r="6" fill="#D4AF37" stroke="${strokeColor}" stroke-width="1.5"/>
+              <circle cx="180" cy="320" r="6" fill="#D4AF37" stroke="${strokeColor}" stroke-width="1.5"/>
+              
+              <path d="M 180,280 Q 210,290 230,340 Q 240,370 235,420" fill="none" stroke="${tieColor}" stroke-width="4" stroke-linecap="round"/>
+              <path d="M 180,320 Q 150,340 140,390 Q 135,420 145,450" fill="none" stroke="${tieColor}" stroke-width="4" stroke-linecap="round"/>
+              <path d="M 175,295 C 160,290 160,310 180,305 C 200,300 200,320 185,315" fill="none" stroke="${tieColor}" stroke-width="4.5" stroke-linecap="round"/>
+
+              <g transform="translate(190, 220)">
+                <rect x="0" y="0" width="180" height="42" rx="8" fill="#161616" opacity="0.92"/>
+                <text x="90" y="25" fill="#FFFFFF" font-size="12" font-family="'Tajawal', 'Alexandria', sans-serif" font-weight="700" text-anchor="middle">أربطة جانبية للتحكم بالاتساع</text>
+              </g>
+              <line x1="190" y1="240" x2="182" y2="280" stroke="#161616" stroke-width="1.5" stroke-dasharray="2 2"/>
+            </svg>
+          `;
+        }
+
+        if (mode === 'texture') {
+          return `
+            <svg viewBox="0 0 400 500" class="w-full h-full object-contain filter drop-shadow-md select-none">
+              <defs>
+                <linearGradient id="macroLinen_${colorObj.id}" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="${colorObj.accent}"/>
+                  <stop offset="70%" stop-color="${hex}"/>
+                  <stop offset="100%" stop-color="${colorObj.border}"/>
+                </linearGradient>
+                <pattern id="denseWeave_${colorObj.id}" width="12" height="12" patternUnits="userSpaceOnUse">
+                  <rect width="12" height="12" fill="${hex}"/>
+                  <line x1="0" y1="3" x2="12" y2="3" stroke="${foldStroke}" stroke-width="1"/>
+                  <line x1="0" y1="9" x2="12" y2="9" stroke="${foldStroke}" stroke-width="1"/>
+                  <line x1="3" y1="0" x2="3" y2="12" stroke="${foldStroke}" stroke-width="1"/>
+                  <line x1="9" y1="0" x2="9" y2="12" stroke="${foldStroke}" stroke-width="1"/>
+                  <circle cx="6" cy="6" r="1.5" fill="${colorObj.accent}" opacity="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="400" height="500" fill="url(#macroLinen_${colorObj.id})" rx="12"/>
+              <rect width="400" height="500" fill="url(#denseWeave_${colorObj.id})" rx="12" opacity="0.85"/>
+              
+              <ellipse cx="200" cy="180" rx="170" ry="110" fill="white" opacity="${colorObj.id === 'white' ? 0.3 : 0.08}"/>
+
+              <line x1="30" y1="360" x2="370" y2="360" stroke="${strokeColor}" stroke-width="2" stroke-dasharray="6 4"/>
+              <line x1="30" y1="370" x2="370" y2="370" stroke="${strokeColor}" stroke-width="2" stroke-dasharray="6 4"/>
+
+              <g transform="translate(30, 385)">
+                <rect x="0" y="0" width="340" height="85" rx="10" fill="#FFFFFF" stroke="#EAE5DE" stroke-width="1" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.05))"/>
+                <text x="170" y="27" fill="#161616" font-size="13" font-family="'Alexandria', 'Tajawal', sans-serif" font-weight="700" text-anchor="middle">100% كتان إسباني فاخر (Royal Spanish Linen)</text>
+                <text x="170" y="50" fill="#6E6E6E" font-size="12" font-family="'Tajawal', sans-serif" text-anchor="middle">خيوط طبيعية مسامية، باردة ومقاومة للحرارة والتوبير</text>
+                <text x="170" y="70" fill="#1B3F2F" font-size="12" font-family="'Tajawal', sans-serif" font-weight="700" text-anchor="middle">معالجة ضد الانكماش والشفافية ✓</text>
+              </g>
+            </svg>
+          `;
+        }
+
+        // Default 'front' view matching the actual photos
+        return `
+          <svg viewBox="0 0 400 500" class="w-full h-full object-contain filter drop-shadow-lg select-none transition-all duration-300">
+            <defs>
+              <linearGradient id="bodyGrad_${colorObj.id}" x1="20%" y1="0%" x2="80%" y2="100%">
+                <stop offset="0%" stop-color="${colorObj.accent}"/>
+                <stop offset="50%" stop-color="${hex}"/>
+                <stop offset="100%" stop-color="${colorObj.border}"/>
+              </linearGradient>
+              <linearGradient id="sleeveGrad_${colorObj.id}" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="${colorObj.accent}"/>
+                <stop offset="100%" stop-color="${colorObj.border}"/>
+              </linearGradient>
+              <pattern id="linenTexture_${colorObj.id}" width="6" height="6" patternUnits="userSpaceOnUse">
+                <path d="M 0,3 L 6,3 M 3,0 L 3,6" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.75"/>
+              </pattern>
+            </defs>
+
+            <ellipse cx="200" cy="435" rx="145" ry="25" fill="${shadowColor}"/>
+
+            <!-- Longer back curved hem contour showing modesty -->
+            <path d="M 90,390 Q 200,465 310,390 L 310,430 Q 200,475 90,430 Z" fill="${colorObj.border}" opacity="0.6"/>
+
+            <!-- Sleeves -->
+            <path d="M 125,120 L 40,240 Q 30,260 55,270 L 95,245 L 120,180 Z" 
+                  fill="url(#sleeveGrad_${colorObj.id})" stroke="${strokeColor}" stroke-width="1.8"/>
+            <path d="M 40,240 L 55,270" stroke="${strokeColor}" stroke-width="3"/>
+
+            <path d="M 275,120 L 360,240 Q 370,260 345,270 L 305,245 L 280,180 Z" 
+                  fill="url(#sleeveGrad_${colorObj.id})" stroke="${strokeColor}" stroke-width="1.8"/>
+            <path d="M 360,240 L 345,270" stroke="${strokeColor}" stroke-width="3"/>
+
+            <!-- Oversized Torso -->
+            <path d="M 140,85 
+                     Q 165,95 200,95 
+                     Q 235,95 260,85 
+                     L 285,120 
+                     Q 320,240 310,390 
+                     Q 255,445 200,445 
+                     Q 145,445 90,390 
+                     Q 80,240 115,120 
+                     Z" 
+                  fill="url(#bodyGrad_${colorObj.id})" stroke="${strokeColor}" stroke-width="2"/>
+            
+            <path d="M 140,85 
+                     Q 165,95 200,95 
+                     Q 235,95 260,85 
+                     L 285,120 
+                     Q 320,240 310,390 
+                     Q 255,445 200,445 
+                     Q 145,445 90,390 
+                     Q 80,240 115,120 
+                     Z" 
+                  fill="url(#linenTexture_${colorObj.id})"/>
+
+            <!-- Fabric folds -->
+            <path d="M 160,130 Q 150,260 140,400" fill="none" stroke="${foldStroke}" stroke-width="1.8"/>
+            <path d="M 240,130 Q 250,260 260,400" fill="none" stroke="${foldStroke}" stroke-width="1.8"/>
+            <path d="M 190,160 Q 185,280 180,410" fill="none" stroke="${foldStroke}" stroke-width="1.2"/>
+            <path d="M 210,160 Q 215,280 220,410" fill="none" stroke="${foldStroke}" stroke-width="1.2"/>
+
+            <!-- Buttons Placket -->
+            <path d="M 195,95 L 195,370 L 205,370 L 205,95 Z" fill="${colorObj.border}" opacity="0.3"/>
+            <line x1="200" y1="95" x2="200" y2="370" stroke="${strokeColor}" stroke-width="1.5"/>
+
+            <circle cx="200" cy="125" r="3.5" fill="${buttonFill}" stroke="${strokeColor}" stroke-width="1"/>
+            <circle cx="200" cy="165" r="3.5" fill="${buttonFill}" stroke="${strokeColor}" stroke-width="1"/>
+            <circle cx="200" cy="205" r="3.5" fill="${buttonFill}" stroke="${strokeColor}" stroke-width="1"/>
+            <circle cx="200" cy="245" r="3.5" fill="${buttonFill}" stroke="${strokeColor}" stroke-width="1"/>
+            <circle cx="200" cy="285" r="3.5" fill="${buttonFill}" stroke="${strokeColor}" stroke-width="1"/>
+            <circle cx="200" cy="325" r="3.5" fill="${buttonFill}" stroke="${strokeColor}" stroke-width="1"/>
+
+            <!-- Collar -->
+            <path d="M 200,95 L 140,85 Q 165,120 185,120 L 200,95 Z" 
+                  fill="${colorObj.accent}" stroke="${strokeColor}" stroke-width="1.8"/>
+            <path d="M 200,95 L 260,85 Q 235,120 215,120 L 200,95 Z" 
+                  fill="${colorObj.accent}" stroke="${strokeColor}" stroke-width="1.8"/>
+            <path d="M 185,95 Q 200,105 215,95" fill="none" stroke="${strokeColor}" stroke-width="2"/>
+
+            <!-- Front curved hem line -->
+            <path d="M 90,390 Q 145,445 200,445 Q 255,445 310,390" fill="none" stroke="${strokeColor}" stroke-width="2.2"/>
+
+            <!-- Side Drawstrings Ribbons (Matches photos) -->
+            <path d="M 100,310 Q 75,340 70,390" fill="none" stroke="${tieColor}" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M 100,315 Q 85,355 80,410" fill="none" stroke="${tieColor}" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M 300,310 Q 325,340 330,390" fill="none" stroke="${tieColor}" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M 300,315 Q 315,355 320,410" fill="none" stroke="${tieColor}" stroke-width="3.5" stroke-linecap="round"/>
+          </svg>
+        `;
+      }
+
+      function initApp() {
+        renderHeroSwatches();
+        renderDynamicVisuals();
+        renderLookbookFallbacks();
+        renderColorSelectors();
+        updatePricingAndReceipt();
+        updatePaymentCardStyles();
+
+        // Start subtle auto-cycle animation between colors
+        startAutoCycle();
+
+        // Pause auto-cycle when user hovers or touches the hero frame
+        const heroFrame = document.getElementById('hero-interactive-frame');
+        if (heroFrame) {
+          heroFrame.addEventListener('mouseenter', () => { isAutoCyclePaused = true; });
+          heroFrame.addEventListener('mouseleave', () => { isAutoCyclePaused = false; });
+          heroFrame.addEventListener('touchstart', () => { isAutoCyclePaused = true; }, { passive: true });
+          heroFrame.addEventListener('touchend', () => { 
+            setTimeout(() => { isAutoCyclePaused = false; }, 5000); 
+          }, { passive: true });
+        }
+      }
+
+      function renderHeroSwatches() {
+        const container = document.getElementById('hero-swatch-list');
+        if (!container) return;
+
+        container.innerHTML = PRODUCT_COLORS.map(color => {
+          const isActive = color.id === state.activePreviewColorId;
+          const borderStyle = color.id === 'white' ? 'border: 2px solid #D1D5DB;' : `border: 2px solid ${color.hex};`;
+          return `
+            <button 
+              type="button" 
+              onclick="setPreviewColor('${color.id}', true)"
+              class="w-7 h-7 sm:w-8 sm:h-8 rounded-full transition-all duration-300 flex items-center justify-center relative ${isActive ? 'ring-2 ring-offset-2 ring-sheon-dark scale-110 shadow-md ring-offset-white' : 'opacity-75 hover:opacity-100 hover:scale-105'}"
+              style="background-color: ${color.hex}; ${borderStyle}"
+              title="${color.nameAr}"
+            >
+              ${isActive ? `<span class="w-2 h-2 rounded-full ${color.id === 'white' ? 'bg-black' : 'bg-white'} shadow-xs animate-pulse"></span>` : ''}
+            </button>
+          `;
+        }).join('');
+      }
+
+      function setPreviewColor(colorId, isManual = false) {
+        state.activePreviewColorId = colorId;
+        state.activePhotoIndex = 0;
+        if (isManual) {
+          pauseAutoCycle(12000);
+        }
+        renderHeroSwatches();
+        renderDynamicVisuals();
+      }
+
+      function navigateHeroPhoto(dir) {
+        pauseAutoCycle(12000);
+        const currentColor = PRODUCT_COLORS.find(c => c.id === state.activePreviewColorId) || PRODUCT_COLORS[0];
+        const photos = currentColor.photos || [currentColor.photoUrl];
+        state.activePhotoIndex = (state.activePhotoIndex + dir + photos.length) % photos.length;
+        renderDynamicVisuals();
+      }
+
+      function setHeroPhoto(idx, isManual = false) {
+        if (isManual) pauseAutoCycle(12000);
+        state.activePhotoIndex = idx;
+        renderDynamicVisuals();
+      }
+
+      // Smooth Crossfade Image Transition
+      function setHeroImageWithFade(newSrc, altText) {
+        const heroContainer = document.getElementById('hero-display-container');
+        if (!heroContainer) return;
+
+        const currentImg = heroContainer.querySelector('img');
+        if (!currentImg) {
+          heroContainer.innerHTML = `
+            <img 
+              src="${newSrc}" 
+              alt="${altText}"
+              class="w-full h-full object-cover object-top transition-all duration-700 ease-out"
+              onerror="this.style.display='none';"
+            />
+          `;
+          return;
+        }
+
+        // Avoid re-animating if already showing this exact src
+        if (currentImg.src.endsWith(newSrc) || currentImg.src === newSrc) {
+          return;
+        }
+
+        const newImg = document.createElement('img');
+        newImg.src = newSrc;
+        newImg.alt = altText;
+        newImg.className = 'w-full h-full object-cover object-top absolute inset-0 opacity-0 scale-[1.02] transition-all duration-700 ease-out pointer-events-none';
+        
+        newImg.onload = () => {
+          heroContainer.appendChild(newImg);
+          requestAnimationFrame(() => {
+            newImg.classList.remove('opacity-0', 'scale-[1.02]');
+            newImg.classList.add('opacity-100', 'scale-100');
+            currentImg.classList.add('opacity-0');
+            setTimeout(() => {
+              if (currentImg && currentImg.parentNode === heroContainer) {
+                heroContainer.removeChild(currentImg);
+              }
+            }, 750);
+          });
+        };
+        newImg.onerror = () => {
+          currentImg.src = newSrc;
+        };
+      }
+
+      function renderDynamicVisuals() {
+        const currentColor = PRODUCT_COLORS.find(c => c.id === state.activePreviewColorId) || PRODUCT_COLORS[0];
+        const photos = currentColor.photos || [currentColor.photoUrl];
+        if (state.activePhotoIndex >= photos.length) state.activePhotoIndex = 0;
+        const currentPhoto = photos[state.activePhotoIndex];
+        
+        // Luxury smooth crossfade
+        setHeroImageWithFade(currentPhoto, `شميز ${currentColor.nameAr} SHEON`);
+
+        const heroColorName = document.getElementById('hero-color-name');
+        if (heroColorName) {
+          heroColorName.classList.add('transition-all', 'duration-300');
+          heroColorName.textContent = currentColor.nameAr;
+        }
+
+        const counterEl = document.getElementById('hero-photo-counter');
+        if (counterEl) {
+          counterEl.textContent = `${state.activePhotoIndex + 1} / ${photos.length}`;
+        }
+
+        const galleryStrip = document.getElementById('hero-gallery-strip');
+        if (galleryStrip) {
+          if (photos.length > 1) {
+            galleryStrip.innerHTML = photos.map((p, idx) => `
+              <button 
+                type="button" 
+                onclick="setHeroPhoto(${idx}, true)"
+                class="w-11 h-14 sm:w-12 sm:h-15 rounded-lg overflow-hidden border-2 transition-all duration-300 shrink-0 ${idx === state.activePhotoIndex ? 'border-sheon-burgundy scale-105 shadow-md ring-2 ring-sheon-burgundy/25' : 'border-neutral-200 opacity-60 hover:opacity-100 hover:border-neutral-400'}"
+                title="عرض الصورة ${idx + 1}"
+              >
+                <img src="${p}" alt="صورة ${idx + 1}" class="w-full h-full object-cover object-top" />
+              </button>
+            `).join('');
+          } else {
+            galleryStrip.innerHTML = '';
+          }
+        }
+
+        const configCanvas = document.getElementById('configurator-canvas');
+        if (configCanvas) {
+          configCanvas.innerHTML = `
+            <img 
+              src="${currentPhoto}" 
+              alt="شميز ${currentColor.nameAr} SHEON"
+              class="w-full h-full object-cover object-top transition-opacity duration-300"
+              onerror="this.style.display='none';"
+            />
+          `;
+        }
+
+        const configBadge = document.getElementById('config-color-badge');
+        if (configBadge) {
+          configBadge.textContent = currentColor.shortName;
+        }
+      }
+
+      // ===== AUTO-CYCLE COLORS ANIMATION =====
+      let autoCycleInterval = null;
+      let isAutoCyclePaused = false;
+      let autoCycleResumeTimeout = null;
+
+      function startAutoCycle() {
+        stopAutoCycle();
+        autoCycleInterval = setInterval(() => {
+          if (isAutoCyclePaused) return;
+          const currentIdx = PRODUCT_COLORS.findIndex(c => c.id === state.activePreviewColorId);
+          const nextIdx = (currentIdx + 1) % PRODUCT_COLORS.length;
+          const nextColor = PRODUCT_COLORS[nextIdx];
+          
+          state.activePreviewColorId = nextColor.id;
+          state.activePhotoIndex = 0;
+          renderHeroSwatches();
+          renderDynamicVisuals();
+        }, 3400);
+      }
+
+      function stopAutoCycle() {
+        if (autoCycleInterval) {
+          clearInterval(autoCycleInterval);
+          autoCycleInterval = null;
+        }
+      }
+
+      function pauseAutoCycle(ms = 12000) {
+        isAutoCyclePaused = true;
+        const badge = document.getElementById('auto-cycle-badge');
+        if (badge) {
+          badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-neutral-400"></span><span class="text-neutral-500">تم التثبيت</span>`;
+          badge.className = 'inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold text-neutral-600 bg-neutral-100 px-2.5 py-0.5 rounded-full border border-neutral-200 transition-all cursor-pointer hover:bg-neutral-200 active:scale-95';
+        }
+        clearTimeout(autoCycleResumeTimeout);
+        autoCycleResumeTimeout = setTimeout(() => {
+          resumeAutoCycle();
+        }, ms);
+      }
+
+      function resumeAutoCycle() {
+        isAutoCyclePaused = false;
+        clearTimeout(autoCycleResumeTimeout);
+        const badge = document.getElementById('auto-cycle-badge');
+        if (badge) {
+          badge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span><span>تبديل تلقائي</span>`;
+          badge.className = 'inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80 shadow-2xs transition-all cursor-pointer hover:bg-emerald-100 active:scale-95';
+        }
+      }
+
+      function toggleAutoCycle() {
+        if (isAutoCyclePaused) {
+          resumeAutoCycle();
+        } else {
+          pauseAutoCycle(60000);
+        }
+      }
+
+      // ===== BURGUNDY LOOKBOOK SLIDER =====
+      const BURGUNDY_LOOKBOOK_PHOTOS = [
+        'images/burgundy-1.jpg',
+        'images/burgundy-3.jpg',
+        'images/burgundy-4.jpg',
+        'images/burgundy-5.jpg',
+        'images/burgundy-2.jpg'
+      ];
+      let burgundyLookbookIdx = 0;
+
+      function changeLookbookBurgundy(dir) {
+        burgundyLookbookIdx = (burgundyLookbookIdx + dir + BURGUNDY_LOOKBOOK_PHOTOS.length) % BURGUNDY_LOOKBOOK_PHOTOS.length;
+        updateLookbookBurgundyUI();
+      }
+
+      function setLookbookBurgundyPhoto(idx) {
+        burgundyLookbookIdx = idx;
+        updateLookbookBurgundyUI();
+      }
+
+      function updateLookbookBurgundyUI() {
+        const img = document.getElementById('lookbook-burgundy-img');
+        if (img) img.src = BURGUNDY_LOOKBOOK_PHOTOS[burgundyLookbookIdx];
+        const counter = document.getElementById('lookbook-burgundy-counter');
+        if (counter) counter.textContent = `${burgundyLookbookIdx + 1} / ${BURGUNDY_LOOKBOOK_PHOTOS.length}`;
+        const thumbs = document.querySelectorAll('.burgundy-thumb-btn');
+        thumbs.forEach((th, i) => {
+          if (i === burgundyLookbookIdx) {
+            th.classList.add('border-sheon-burgundy', 'scale-105', 'opacity-100');
+            th.classList.remove('border-neutral-200', 'opacity-60');
+          } else {
+            th.classList.remove('border-sheon-burgundy', 'scale-105', 'opacity-100');
+            th.classList.add('border-neutral-200', 'opacity-60');
+          }
+        });
+      }
+
+      function renderLookbookFallbacks() {
+        // Fallbacks for the 4 photo cards if needed
+        const fb1 = document.getElementById('look-fallback-1');
+        if (fb1) fb1.innerHTML = generateChemisSvg(PRODUCT_COLORS[0], 'front');
+        const fb2 = document.getElementById('look-fallback-2');
+        if (fb2) fb2.innerHTML = generateChemisSvg(PRODUCT_COLORS[1], 'side');
+        const fb3 = document.getElementById('look-fallback-3');
+        if (fb3) fb3.innerHTML = generateChemisSvg(PRODUCT_COLORS[2], 'front');
+        const fb4 = document.getElementById('look-fallback-4');
+        if (fb4) fb4.innerHTML = generateChemisSvg(PRODUCT_COLORS[3], 'front');
+      }
+
+      // Quick Choose color from Lookbook Card
+      function quickChooseColor(colorId) {
+        setPreviewColor(colorId);
+        // set first slot to this color
+        state.selectedColors[0] = colorId;
+        renderColorSelectors();
+        // smooth scroll to order section
+        const orderSection = document.getElementById('order-section');
+        if (orderSection) {
+          orderSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+
+      // Fit Advisor Weight Slider Logic
+      function handleWeightChange(val) {
+        const weight = parseInt(val, 10);
+        document.getElementById('weight-display-val').textContent = weight;
+
+        const headlineEl = document.getElementById('fit-result-headline');
+        const descEl = document.getElementById('fit-result-desc');
+
+        if (weight <= 75) {
+          headlineEl.textContent = 'أوفر سايز واسع ومريح جداً (Relaxed Oversized)';
+          descEl.textContent = 'الشميز سيعطيكِ إطلالة كاجوال أوروبية واسعة ومنسدلة. يمكنكِ شد الأربطة الجانبية بسهولة لتقسيم الخصر والتحكم في درجة الاتساع بالشكل المناسب لكِ.';
+        } else if (weight <= 95) {
+          headlineEl.textContent = 'المقاس المثالي الأجمل (Perfect Modest Silhouette)';
+          descEl.textContent = 'هذا هو المقاس المتطابق تماماً مع قياسات الموديل في جلسة التصوير. سيعطيكِ ساترة مثالية خلفية بطول 90 سم، وانسيابية راقية تخفي أي تفاصيل وتمنحكِ راحة تامة طوال اليوم.';
+        } else {
+          headlineEl.textContent = 'مريح وفضفاض بدون أي ضيق (Comfort Free Size)';
+          descEl.textContent = 'بفضل المحيط الواسع (140 سم) وخامة الكتان المرنة والفتحات الجانبية المريحة، لن تشعري بأي شد عند منطقة الصدر أو الذراعين أو الأرداف نهائياً.';
+        }
+      }
+
+      // ===== ORDER PROGRESS BAR LOGIC =====
+      function setProgressStep(step) {
+        // step: 1, 2, or 3
+        for (let i = 1; i <= 3; i++) {
+          const icon = document.getElementById(`prog-icon-${i}`);
+          const stepEl = document.getElementById(`prog-step-${i}`);
+          if (!icon || !stepEl) continue;
+          if (i < step) {
+            // Done
+            icon.className = 'order-step-icon done';
+            icon.textContent = '✓';
+            stepEl.classList.add('completed');
+            stepEl.classList.remove('active-step');
+          } else if (i === step) {
+            // Active
+            icon.className = 'order-step-icon active';
+            icon.textContent = ['١','٢','٣'][i-1];
+            stepEl.classList.add('active-step', 'completed');
+          } else {
+            // Future
+            icon.className = 'order-step-icon';
+            icon.textContent = ['١','٢','٣'][i-1];
+            stepEl.classList.remove('completed', 'active-step');
+          }
+        }
+      }
+
+      function selectBundle(bundleId) {
+        state.selectedBundleId = bundleId;
+        const bundle = BUNDLES[bundleId];
+
+        [1, 2, 3].forEach(id => {
+          const card = document.getElementById(`bundle-card-${id}`);
+          if (!card) return;
+          if (id === bundleId) {
+            card.classList.remove('border-sheon-border', 'bg-white', 'shadow-xs');
+            card.classList.add('border-sheon-burgundy', 'bg-sheon-burgundyLight/30', 'shadow-md', 'ring-2', 'ring-sheon-burgundy/20');
+          } else {
+            card.classList.remove('border-sheon-burgundy', 'bg-sheon-burgundyLight/30', 'shadow-md', 'ring-2', 'ring-sheon-burgundy/20');
+            card.classList.add('border-sheon-border', 'bg-white', 'shadow-xs');
+          }
+        });
+
+        const bundleTitleEl = document.getElementById('selected-bundle-title');
+        if (bundleTitleEl) {
+          bundleTitleEl.textContent = bundle.shortName;
+        }
+
+        // Advance progress bar
+        setProgressStep(2);
+
+        renderColorSelectors();
+        updatePricingAndReceipt();
+      }
+
+      function renderColorSelectors() {
+        const bundle = BUNDLES[state.selectedBundleId];
+        const container = document.getElementById('dynamic-color-selectors');
+        if (!container) return;
+
+        let html = '';
+        for (let i = 0; i < bundle.count; i++) {
+          const slotIndex = i;
+          const currentSelectedColorId = state.selectedColors[slotIndex] || PRODUCT_COLORS[i % PRODUCT_COLORS.length].id;
+          state.selectedColors[slotIndex] = currentSelectedColorId;
+
+          const ordinalArabic = i === 0 ? 'القطعة الأولى' : (i === 1 ? 'القطعة الثانية' : 'القطعة الثالثة');
+
+          html += `
+            <div class="bg-white p-3.5 sm:p-4 rounded-xl border border-sheon-border shadow-xs">
+              <div class="flex items-center justify-between mb-3 border-b border-sheon-border/60 pb-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-sheon-dark text-white text-xs flex items-center justify-center font-black">${i + 1}</span>
+                  <span class="text-sm font-bold text-sheon-dark">${ordinalArabic}</span>
+                  <span class="text-xs bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded-full font-medium">One Size حر</span>
+                </div>
+                <div class="flex items-center gap-1.5 text-xs font-bold text-sheon-burgundy">
+                  <span class="text-neutral-400 font-normal">اللون:</span>
+                  <span id="slot-name-label-${slotIndex}">${(PRODUCT_COLORS.find(c => c.id === currentSelectedColorId) || {}).shortName || ''}</span>
+                </div>
+              </div>
+              <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
+                ${PRODUCT_COLORS.map(color => {
+                  const isChecked = color.id === currentSelectedColorId;
+                  const borderCss = color.id === 'white' ? 'border: 1px solid #D1D5DB;' : '';
+                  return `
+                    <button 
+                      type="button" 
+                      onclick="selectSlotColor(${slotIndex}, '${color.id}')"
+                      class="flex items-center gap-2 p-2 sm:p-2.5 rounded-xl border text-right transition-all cursor-pointer ${isChecked ? 'border-sheon-burgundy bg-sheon-burgundyLight/50 ring-2 ring-sheon-burgundy/25 font-bold shadow-xs' : 'border-sheon-border bg-white hover:border-sheon-dark/40 font-medium'}"
+                    >
+                      <span class="w-4 h-4 rounded-full shrink-0 shadow-xs ring-1 ring-black/10" style="background-color: ${color.hex}; ${borderCss}"></span>
+                      <span class="text-xs sm:text-sm text-sheon-dark whitespace-nowrap">${color.shortName}</span>
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          `;
+        }
+
+        container.innerHTML = html;
+      }
+
+      function selectSlotColor(slotIndex, colorId) {
+        state.selectedColors[slotIndex] = colorId;
+        setPreviewColor(colorId);
+        renderColorSelectors();
+        updatePricingAndReceipt();
+        // Advance progress bar to step 3 (colors chosen)
+        setProgressStep(3);
+      }
+
+      function getShippingCost() {
+        // Free shipping incentive for bundle 2 and 3
+        if (state.selectedBundleId >= 2) {
+          return 0;
+        }
+
+        const govSelect = document.getElementById('customer-gov');
+        const govVal = govSelect ? govSelect.value : 'cairo_giza';
+        let baseShipping = govVal === 'cairo_giza' ? 60 : 80;
+
+        // Check if instapay discount applies
+        const paymentRadio = document.querySelector('input[name="payment_method"]:checked');
+        if (paymentRadio && paymentRadio.value === 'instapay') {
+          baseShipping = Math.max(30, baseShipping - 20); // 20 EGP discount
+        }
+
+        return baseShipping;
+      }
+
+      function updateShippingCalc() {
+        updatePricingAndReceipt();
+      }
+
+      function updatePaymentCardStyles() {
+        const paymentRadio = document.querySelector('input[name="payment_method"]:checked');
+        const codCard = document.getElementById('pay-cod-card');
+        const instaCard = document.getElementById('pay-insta-card');
+        if (!paymentRadio) return;
+
+        if (paymentRadio.value === 'cod') {
+          if (codCard) {
+            codCard.classList.add('border-sheon-dark');
+            codCard.classList.remove('border-sheon-border');
+          }
+          if (instaCard) {
+            instaCard.classList.remove('border-sheon-dark');
+            instaCard.classList.add('border-sheon-border');
+          }
+        } else {
+          if (instaCard) {
+            instaCard.classList.add('border-sheon-dark');
+            instaCard.classList.remove('border-sheon-border');
+          }
+          if (codCard) {
+            codCard.classList.remove('border-sheon-dark');
+            codCard.classList.add('border-sheon-border');
+          }
+        }
+        updatePricingAndReceipt();
+      }
+
+      function updatePricingAndReceipt() {
+        const bundle = BUNDLES[state.selectedBundleId];
+        const shipping = getShippingCost();
+        const total = bundle.price + shipping;
+
+        const bundleLabel = document.getElementById('receipt-bundle-name');
+        if (bundleLabel) bundleLabel.textContent = `سعر ${bundle.name}:`;
+
+        const subtotalEl = document.getElementById('receipt-subtotal');
+        if (subtotalEl) subtotalEl.textContent = `${bundle.price.toLocaleString()} جنيه`;
+
+        const shippingLabel = document.getElementById('receipt-shipping-label');
+        if (shippingLabel) {
+          if (state.selectedBundleId >= 2) {
+            shippingLabel.innerHTML = '<span class="text-emerald-700 font-bold">مصاريف الشحن:</span>';
+          } else {
+            const govSelect = document.getElementById('customer-gov');
+            const isCairo = !govSelect || govSelect.value === 'cairo_giza';
+            const paymentRadio = document.querySelector('input[name="payment_method"]:checked');
+            const isInstapay = paymentRadio && paymentRadio.value === 'instapay';
+            let text = isCairo ? 'مصاريف الشحن (القاهرة والجيزة):' : 'مصاريف الشحن (المحافظات):';
+            if (isInstapay) text += ' (مطبق خصم الدفع الإلكتروني)';
+            shippingLabel.textContent = text;
+          }
+        }
+
+        const shippingEl = document.getElementById('receipt-shipping');
+        if (shippingEl) {
+          if (state.selectedBundleId >= 2) {
+            shippingEl.innerHTML = '<span class="inline-flex items-center gap-1 font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 text-xs whitespace-nowrap">مجاناً (عرض الباقة) 🎁</span>';
+          } else {
+            shippingEl.innerHTML = `<span class="font-bold text-sheon-dark text-sm sm:text-base">${shipping} جنيه</span>`;
+          }
+        }
+
+        const savingsEl = document.getElementById('receipt-savings');
+        if (savingsEl) {
+          const shippingSaving = state.selectedBundleId >= 2 ? 60 : 0;
+          const instapaySaving = document.querySelector('input[name="payment_method"]:checked')?.value === 'instapay' ? 20 : 0;
+          const totalSaved = bundle.savings + shippingSaving + instapaySaving;
+          savingsEl.textContent = `وفرتي ${totalSaved.toLocaleString()} جنيه ${state.selectedBundleId >= 2 ? '(شحن مجاني)' : ''}`;
+        }
+
+        const totalEl = document.getElementById('receipt-total');
+        if (totalEl) totalEl.textContent = `${total.toLocaleString()} جنيه`;
+
+        // Mobile Sticky Bar updates
+        const mobileStickyTitle = document.getElementById('mobile-sticky-title');
+        if (mobileStickyTitle) mobileStickyTitle.textContent = `${bundle.shortName} (توفير ${bundle.savings} ج)`;
+
+        const mobileStickyPrice = document.getElementById('mobile-sticky-price');
+        if (mobileStickyPrice) mobileStickyPrice.textContent = `${total.toLocaleString()} جنيه`;
+
+        const mobileStickyOld = document.getElementById('mobile-sticky-oldprice');
+        if (mobileStickyOld) mobileStickyOld.textContent = `${(bundle.oldPrice + 80).toLocaleString()} جنيه`;
+      }
+
+      // Order Submission & WhatsApp Message Compilation
+      function handleOrderSubmit(e) {
+        e.preventDefault();
+
+        const nameInput = document.getElementById('customer-name');
+        const phoneInput = document.getElementById('customer-phone');
+        const govSelect = document.getElementById('customer-gov');
+        const addressInput = document.getElementById('customer-address');
+        const notesInput = document.getElementById('customer-notes');
+
+        const name = nameInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const address = addressInput.value.trim();
+        const notes = notesInput ? notesInput.value.trim() : '';
+        const govText = govSelect.options[govSelect.selectedIndex].text;
+
+        if (!name || !phone || !address) {
+          alert('برجاء استكمال الاسم ورقم الموبايل والعنوان بالتفصيل للمعاينة والتوصيل.');
+          return;
+        }
+
+        const bundle = BUNDLES[state.selectedBundleId];
+        const shipping = getShippingCost();
+        const total = bundle.price + shipping;
+
+        // Generate Order Code
+        const orderCode = 'SH-' + Math.floor(1000 + Math.random() * 9000);
+        const orderCodeEl = document.getElementById('modal-order-code');
+        if (orderCodeEl) orderCodeEl.textContent = `كود الطلب: #${orderCode}`;
+
+        // Compile Selected Colors
+        const chosenColorsList = [];
+        const chosenColorsModal = [];
+        for (let i = 0; i < bundle.count; i++) {
+          const colorObj = PRODUCT_COLORS.find(c => c.id === state.selectedColors[i]) || PRODUCT_COLORS[0];
+          chosenColorsList.push(`قطعة ${i + 1}: ${colorObj.nameAr}`);
+          chosenColorsModal.push(`قطعة ${i + 1}: ${colorObj.shortName}`);
+        }
+        const colorsString = chosenColorsModal.join(' ، ');
+
+        const paymentRadio = document.querySelector('input[name="payment_method"]:checked');
+        const paymentMethodStr = paymentRadio && paymentRadio.value === 'instapay' ? 'إنستاباي / محفظة إلكترونية (مع خصم الشحن)' : 'كاش عند الاستلام بعد المعاينة';
+
+        // Populate Modal Fields
+        document.getElementById('modal-bundle-name').textContent = `${bundle.name} (${bundle.price} جنيه)`;
+        document.getElementById('modal-colors-chosen').textContent = colorsString;
+        document.getElementById('modal-payment-method').textContent = paymentMethodStr;
+        document.getElementById('modal-customer-name').textContent = name;
+        document.getElementById('modal-customer-phone').textContent = phone;
+        document.getElementById('modal-customer-address').textContent = `${govText} — ${address}`;
+        document.getElementById('modal-shipping').textContent = shipping === 0 ? 'مجاناً (عرض الباقة) 🎁' : `${shipping} جنيه`;
+        document.getElementById('modal-total').textContent = `${total.toLocaleString()} جنيه`;
+
+        // Create WhatsApp Message Body
+        const waMessageLines = [
+          `*طلب جديد من موقع SHEON | شميز أوفر سايز كتان إسباني* 🌸`,
+          `🔖 *كود الحجز:* #${orderCode}`,
+          `------------------------------`,
+          `👗 *تفاصيل الباقة:* ${bundle.name}`,
+          `🎨 *الألوان المختارة:*`,
+          ...chosenColorsList.map(c => `   - ${c}`),
+          `📏 *المقاس:* One Size حر (يلبس من 70 حتى 110 كجم)`,
+          `💳 *طريقة الدفع:* ${paymentMethodStr}`,
+          `------------------------------`,
+          `👤 *اسم العميل:* ${name}`,
+          `📱 *رقم الموبايل:* ${phone}`,
+          `📍 *المحافظة:* ${govText}`,
+          `🏠 *العنوان بالتفصيل:* ${address}`,
+          notes ? `📝 *ملاحظات:* ${notes}` : ``,
+          `------------------------------`,
+          `💵 *سعر الباقة:* ${bundle.price} جنيه`,
+          shipping === 0 ? `🚚 *مصاريف الشحن:* مجاناً (عرض الباقة) 🎁` : `🚚 *مصاريف الشحن:* ${shipping} جنيه`,
+          `💰 *الإجمالي المستحق:* ${total} جنيه`,
+          `✅ *شرط الاستلام:* حق المعاينة وفتح الشحنة وفحص الكتان قبل الدفع`
+        ].filter(Boolean);
+
+        const waEncodedText = encodeURIComponent(waMessageLines.join('\n'));
+        const waUrl = `https://wa.me/201006626593?text=${waEncodedText}`;
+
+        const waLinkEl = document.getElementById('modal-whatsapp-link');
+        waLinkEl.href = waUrl;
+        waLinkEl.setAttribute('data-full-text', waMessageLines.join('\n'));
+
+        // Instant Background Sync to Google Sheets (records order even if customer exits before WhatsApp)
+        const orderPayload = {
+          orderCode: '#' + orderCode,
+          timestamp: new Date().toLocaleString('ar-EG', { timeZone: 'Africa/Cairo' }),
+          customerName: name,
+          phone: phone,
+          governorate: govText,
+          address: address,
+          bundleName: bundle.name,
+          chosenColors: colorsString,
+          paymentMethod: paymentMethodStr,
+          subtotal: bundle.price,
+          shipping: shipping,
+          total: total,
+          notes: notes || 'بدون ملاحظات',
+          status: 'جديد (قيد التأكيد)'
+        };
+        syncOrderToGoogleSheets(orderPayload);
+
+        // Show Modal
+        const modal = document.getElementById('order-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      function closeOrderModal() {
+        const modal = document.getElementById('order-modal');
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
+
+      function copyOrderText() {
+        const waLinkEl = document.getElementById('modal-whatsapp-link');
+        const text = waLinkEl.getAttribute('data-full-text') || '';
+        navigator.clipboard.writeText(text).then(() => {
+          const btn = document.getElementById('copy-btn');
+          btn.innerHTML = `<span class="text-emerald-700 font-bold">✓ تم نسخ تفاصيل الطلب بنجاح!</span>`;
+          setTimeout(() => {
+            btn.innerHTML = `<span>نسخ رسالة الطلب كـ نص</span>`;
+          }, 2500);
+        });
+      }
+
+      function toggleFaq(index) {
+        const body = document.getElementById(`faq-body-${index}`);
+        const icon = document.getElementById(`faq-icon-${index}`);
+        if (!body || !icon) return;
+
+        const isHidden = body.classList.contains('hidden');
+        if (isHidden) {
+          body.classList.remove('hidden');
+          icon.textContent = '−';
+          icon.classList.add('bg-sheon-burgundy', 'text-white', 'border-sheon-burgundy');
+          icon.classList.remove('bg-sheon-bg', 'text-sheon-dark');
+        } else {
+          body.classList.add('hidden');
+          icon.textContent = '+';
+          icon.classList.remove('bg-sheon-burgundy', 'text-white', 'border-sheon-burgundy');
+          icon.classList.add('bg-sheon-bg', 'text-sheon-dark');
+        }
+      }
+
+      // Live Countdown Timer (Ticks Every Second)
+      function initCountdownTimer() {
+        let totalSeconds = 3 * 3600 + 42 * 60 + 19;
+        function updateDisplay() {
+          const hours = Math.floor(totalSeconds / 3600);
+          const minutes = Math.floor((totalSeconds % 3600) / 60);
+          const seconds = totalSeconds % 60;
+
+          const hEl = document.getElementById('cd-hours');
+          const mEl = document.getElementById('cd-minutes');
+          const sEl = document.getElementById('cd-seconds');
+
+          if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+          if (mEl) mEl.textContent = String(minutes).padStart(2, '0');
+          if (sEl) sEl.textContent = String(seconds).padStart(2, '0');
+
+          if (totalSeconds > 0) {
+            totalSeconds--;
+          } else {
+            totalSeconds = 4 * 3600;
+          }
+        }
+        updateDisplay();
+        setInterval(updateDisplay, 1000);
+      }
+
+      // High-End Scroll Reveal Animation for Sections
+      function initScrollReveal() {
+        if (!('IntersectionObserver' in window)) return;
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+      }
+
+      // ===== UNIVERSAL STICKY CTA (All Screens) =====
+      function initStickyCTA() {
+        const cta = document.getElementById('sticky-order-cta');
+        const orderSection = document.getElementById('order-section');
+        const heroSection = document.querySelector('section');
+        if (!cta || !orderSection) return;
+
+        function checkCTA() {
+          const scrollY = window.scrollY;
+          const orderTop = orderSection.getBoundingClientRect().top;
+          const orderBottom = orderSection.getBoundingClientRect().bottom;
+
+          // Show after 400px scroll, hide when inside/below the order form
+          if (scrollY > 400 && (orderTop > window.innerHeight * 0.5 || orderBottom < 0)) {
+            cta.classList.add('show');
+          } else {
+            cta.classList.remove('show');
+          }
+        }
+
+        window.addEventListener('scroll', checkCTA, { passive: true });
+        window.addEventListener('resize', checkCTA);
+        checkCTA();
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initApp();
+        initCountdownTimer();
+        initScrollReveal();
+        initStickyCTA();
+        setProgressStep(1); // Start at step 1
+
+        // Advance to step 3 when user focuses on form fields
+        const formFields = ['customer-name', 'customer-phone', 'customer-address'];
+        formFields.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.addEventListener('focus', () => setProgressStep(3), { once: true });
+        });
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeOrderModal();
+      });
+    </script>
+  </body>
+</html>

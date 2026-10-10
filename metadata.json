@@ -1,0 +1,6 @@
+{
+  "name": "SHEON - شميز أوفر سايز كتان إسباني",
+  "description": "صفحة هبوط تسوق حصرية لبراند SHEON - شميز أوفر سايز كتان إسباني رويال مع باقات توفير وشحن سريع ومعاينة قبل الاستلام.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
