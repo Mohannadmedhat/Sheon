@@ -15,7 +15,7 @@
  *    - Who has access: Anyone (أي شخص)  <-- خطوة ضرورية جداً لاستقبال الطلبات بدون تسجيل دخول
  * 7. اضغطي Deploy ووافقي على الصلاحيات (Authorize access > Advanced > Go to ... (unsafe))
  * 8. انسخي الـ Web app URL الناتج (يبدأ بـ https://script.google.com/macros/s/...)
- * 9. الصقي الرابط في ملف index.html في خانة: GOOGLE_SHEETS_WEBAPP_URL
+ * 9. أضيفي الرابط في متغيرات البيئة (GOOGLE_SHEETS_WEBAPP_URL) داخل Vercel وملف .env.local محلياً (مخفي عن GitHub والمتصفح).
  * =========================================================================
  */
 

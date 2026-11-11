@@ -3,17 +3,31 @@ import react from '@vitejs/plugin-react';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
+import orderHandler from './api/order.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, __dirname, '');
+  if (!process.env.GOOGLE_SHEETS_WEBAPP_URL && env.GOOGLE_SHEETS_WEBAPP_URL) {
+    process.env.GOOGLE_SHEETS_WEBAPP_URL = env.GOOGLE_SHEETS_WEBAPP_URL;
+  }
+
   return {
     publicDir: path.resolve(__dirname, 'public'),
     plugins: [
-      react(), 
+      react(),
       tailwindcss(),
+      {
+        name: 'local-order-api',
+        configureServer(server) {
+          server.middlewares.use('/api/order', (req, res) => {
+            void orderHandler(req, res);
+          });
+        },
+      },
       {
         name: 'copy-images-folder',
         closeBundle() {

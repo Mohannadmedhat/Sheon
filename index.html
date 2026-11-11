@@ -1667,24 +1667,23 @@
     <!-- 14. PURE VANILLA JAVASCRIPT APP LOGIC -->
     <script>
       // ===== GOOGLE SHEETS LIVE DATABASE CONFIGURATION =====
-      // رابط الـ Web App الناتج من Google Apps Script المتصل بـ Google Sheets
-      const GOOGLE_SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwtPb6pT6ls7cbtWHX-XtadCve3I-q5x2lM4RV7aaPRMoke-8JWu6Ie6GJXFVmyjRBE-w/exec';
+      // يتم إرسال الطلبات عبر Vercel Serverless API لإخفاء رابط Google Sheets عن المتصفح وGitHub
+      const ORDER_API_ENDPOINT = '/api/order';
 
       async function syncOrderToGoogleSheets(orderPayload) {
-        if (!GOOGLE_SHEETS_WEBAPP_URL) {
-          console.info('ℹ️ تنبيه: لم يتم وضع رابط Google Sheets Web App بعد. البيانات جاهزة ومحفوظة محلياً.');
-          return;
-        }
-
         try {
-          await fetch(GOOGLE_SHEETS_WEBAPP_URL, {
+          const response = await fetch(ORDER_API_ENDPOINT, {
             method: 'POST',
-            mode: 'no-cors',
             headers: {
-              'Content-Type': 'text/plain;charset=utf-8'
+              'Content-Type': 'application/json'
             },
             body: JSON.stringify(orderPayload)
           });
+
+          if (!response.ok) {
+            console.warn('Google Sheets API proxy notice:', response.status);
+            return;
+          }
           console.log('✓ تم تسجيل الأوردر بنجاح في Google Sheets:', orderPayload.orderCode);
         } catch (err) {
           console.warn('Google Sheets background sync notice:', err);
