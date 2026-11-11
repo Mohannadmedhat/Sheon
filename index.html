@@ -1139,7 +1139,7 @@
                       <input type="radio" name="payment_method" value="instapay" onchange="updatePaymentCardStyles()" class="accent-sheon-burgundy w-4 h-4 cursor-pointer" />
                       <div class="flex flex-col">
                         <span class="text-xs sm:text-sm font-bold text-sheon-dark">إنستاباي أو محفظة</span>
-                        <span class="text-xs text-sheon-burgundy font-bold">خصم 20 جنيه إضافي على الشحن ⚡</span>
+                        <span id="insta-discount-note" class="text-xs text-sheon-burgundy font-bold">خصم 20 جنيه إضافي على الشحن ⚡</span>
                       </div>
                     </label>
 
@@ -1508,7 +1508,7 @@
           <span>·</span>
           <a href="#lookbook-section" class="hover:text-white transition-colors">معرض الصور</a>
           <span>·</span>
-          <a href="https://wa.me/201006626593" target="_blank" class="hover:text-white transition-colors">خدمة العملاء (01006626593)</a>
+          <a href="https://wa.me/201006626593" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">خدمة العملاء (01006626593)</a>
           <span>·</span>
           <span>القاهرة، مصر</span>
         </div>
@@ -1645,7 +1645,7 @@
         </div>
 
         <div class="space-y-2.5">
-          <a id="modal-whatsapp-link" href="#" target="_blank" class="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 transition-colors shadow-md">
+          <a id="modal-whatsapp-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 transition-colors shadow-md">
             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
               <path d="M12.031 2C6.495 2 2 6.495 2 12.031a9.98 9.98 0 001.378 5.068L2 22l5.068-1.378a9.988 9.988 0 004.963 1.409h.005c5.536 0 10.031-4.495 10.031-10.031A10.031 10.031 0 0012.031 2zm0 18.25a8.214 8.214 0 01-4.195-1.144l-.301-.179-3.118.848.848-3.118-.179-.301a8.21 8.21 0 01-1.255-4.225c0-4.542 3.696-8.238 8.238-8.238 4.542 0 8.238 3.696 8.238 8.238 0 4.542-3.696 8.238-8.238 8.238zm4.512-6.177c-.247-.124-1.464-.722-1.691-.805-.227-.082-.392-.124-.557.124-.165.247-.64 1.01-.784 1.175-.144.165-.289.185-.536.062-.247-.124-1.042-.384-1.986-1.226-.733-.654-1.228-1.463-1.372-1.71-.144-.247-.015-.38.109-.503.111-.111.247-.289.371-.433.124-.144.165-.247.247-.412.082-.165.041-.309-.021-.433-.062-.124-.557-1.34-.763-1.835-.201-.482-.405-.417-.557-.425l-.474-.008c-.165 0-.433.062-.66.309-.227.247-.866.845-.866 2.062 0 1.216.887 2.392 1.01 2.557.124.165 1.745 2.665 4.228 3.738.591.256 1.053.409 1.413.523.594.189 1.135.162 1.562.099.477-.071 1.464-.598 1.67-1.175.206-.577.206-1.072.144-1.175-.062-.103-.227-.165-.474-.289z"/>
             </svg>
@@ -1794,185 +1794,12 @@
         selectedBundleId: 2,
         selectedColors: ['burgundy', 'beige', 'olive'],
         activePreviewColorId: 'burgundy',
-        activePhotoIndex: 0,
-        visualMode: 'front'
+        activePhotoIndex: 0
       };
-
-      // High-End Vector SVG Rendering Function for Spanish Linen Chemise
-      function generateChemisSvg(colorObj, mode = 'front') {
-        const hex = colorObj.hex;
-        const strokeColor = colorObj.id === 'white' ? '#B8B3AB' : '#0F0F0F';
-        const shadowColor = colorObj.id === 'white' ? 'rgba(0,0,0,0.06)' : 'rgba(0,0,0,0.25)';
-        const foldStroke = colorObj.id === 'white' ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.18)';
-        const buttonFill = colorObj.id === 'white' ? '#D1D5DB' : '#FAF8F5';
-        const tieColor = colorObj.id === 'white' ? '#A39D94' : colorObj.accent;
-
-        if (mode === 'side') {
-          return `
-            <svg viewBox="0 0 400 500" class="w-full h-full object-contain filter drop-shadow-md select-none transition-all duration-300">
-              <defs>
-                <linearGradient id="sideGrad_${colorObj.id}" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="${colorObj.accent}"/>
-                  <stop offset="50%" stop-color="${hex}"/>
-                  <stop offset="100%" stop-color="${colorObj.border}"/>
-                </linearGradient>
-              </defs>
-              <rect width="400" height="500" fill="#FBF9F7" rx="12"/>
-              <circle cx="200" cy="220" r="140" fill="rgba(197, 163, 126, 0.08)"/>
-
-              <path d="M 140,80 Q 200,70 240,80 L 260,180 Q 270,300 240,410 Q 180,440 120,410 Q 100,300 120,180 Z" 
-                    fill="url(#sideGrad_${colorObj.id})" stroke="${strokeColor}" stroke-width="2"/>
-
-              <path d="M 120,410 Q 180,440 240,410" fill="none" stroke="${strokeColor}" stroke-width="3"/>
-              <path d="M 180,260 L 180,420" stroke="${strokeColor}" stroke-width="2.5" stroke-dasharray="3 3"/>
-
-              <circle cx="180" cy="280" r="6" fill="#D4AF37" stroke="${strokeColor}" stroke-width="1.5"/>
-              <circle cx="180" cy="320" r="6" fill="#D4AF37" stroke="${strokeColor}" stroke-width="1.5"/>
-              
-              <path d="M 180,280 Q 210,290 230,340 Q 240,370 235,420" fill="none" stroke="${tieColor}" stroke-width="4" stroke-linecap="round"/>
-              <path d="M 180,320 Q 150,340 140,390 Q 135,420 145,450" fill="none" stroke="${tieColor}" stroke-width="4" stroke-linecap="round"/>
-              <path d="M 175,295 C 160,290 160,310 180,305 C 200,300 200,320 185,315" fill="none" stroke="${tieColor}" stroke-width="4.5" stroke-linecap="round"/>
-
-              <g transform="translate(190, 220)">
-                <rect x="0" y="0" width="180" height="42" rx="8" fill="#161616" opacity="0.92"/>
-                <text x="90" y="25" fill="#FFFFFF" font-size="12" font-family="'Tajawal', 'Alexandria', sans-serif" font-weight="700" text-anchor="middle">أربطة جانبية للتحكم بالاتساع</text>
-              </g>
-              <line x1="190" y1="240" x2="182" y2="280" stroke="#161616" stroke-width="1.5" stroke-dasharray="2 2"/>
-            </svg>
-          `;
-        }
-
-        if (mode === 'texture') {
-          return `
-            <svg viewBox="0 0 400 500" class="w-full h-full object-contain filter drop-shadow-md select-none">
-              <defs>
-                <linearGradient id="macroLinen_${colorObj.id}" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="${colorObj.accent}"/>
-                  <stop offset="70%" stop-color="${hex}"/>
-                  <stop offset="100%" stop-color="${colorObj.border}"/>
-                </linearGradient>
-                <pattern id="denseWeave_${colorObj.id}" width="12" height="12" patternUnits="userSpaceOnUse">
-                  <rect width="12" height="12" fill="${hex}"/>
-                  <line x1="0" y1="3" x2="12" y2="3" stroke="${foldStroke}" stroke-width="1"/>
-                  <line x1="0" y1="9" x2="12" y2="9" stroke="${foldStroke}" stroke-width="1"/>
-                  <line x1="3" y1="0" x2="3" y2="12" stroke="${foldStroke}" stroke-width="1"/>
-                  <line x1="9" y1="0" x2="9" y2="12" stroke="${foldStroke}" stroke-width="1"/>
-                  <circle cx="6" cy="6" r="1.5" fill="${colorObj.accent}" opacity="0.5"/>
-                </pattern>
-              </defs>
-              <rect width="400" height="500" fill="url(#macroLinen_${colorObj.id})" rx="12"/>
-              <rect width="400" height="500" fill="url(#denseWeave_${colorObj.id})" rx="12" opacity="0.85"/>
-              
-              <ellipse cx="200" cy="180" rx="170" ry="110" fill="white" opacity="${colorObj.id === 'white' ? 0.3 : 0.08}"/>
-
-              <line x1="30" y1="360" x2="370" y2="360" stroke="${strokeColor}" stroke-width="2" stroke-dasharray="6 4"/>
-              <line x1="30" y1="370" x2="370" y2="370" stroke="${strokeColor}" stroke-width="2" stroke-dasharray="6 4"/>
-
-              <g transform="translate(30, 385)">
-                <rect x="0" y="0" width="340" height="85" rx="10" fill="#FFFFFF" stroke="#EAE5DE" stroke-width="1" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.05))"/>
-                <text x="170" y="27" fill="#161616" font-size="13" font-family="'Alexandria', 'Tajawal', sans-serif" font-weight="700" text-anchor="middle">100% كتان إسباني فاخر (Royal Spanish Linen)</text>
-                <text x="170" y="50" fill="#6E6E6E" font-size="12" font-family="'Tajawal', sans-serif" text-anchor="middle">خيوط طبيعية مسامية، باردة ومقاومة للحرارة والتوبير</text>
-                <text x="170" y="70" fill="#1B3F2F" font-size="12" font-family="'Tajawal', sans-serif" font-weight="700" text-anchor="middle">معالجة ضد الانكماش والشفافية ✓</text>
-              </g>
-            </svg>
-          `;
-        }
-
-        // Default 'front' view matching the actual photos
-        return `
-          <svg viewBox="0 0 400 500" class="w-full h-full object-contain filter drop-shadow-lg select-none transition-all duration-300">
-            <defs>
-              <linearGradient id="bodyGrad_${colorObj.id}" x1="20%" y1="0%" x2="80%" y2="100%">
-                <stop offset="0%" stop-color="${colorObj.accent}"/>
-                <stop offset="50%" stop-color="${hex}"/>
-                <stop offset="100%" stop-color="${colorObj.border}"/>
-              </linearGradient>
-              <linearGradient id="sleeveGrad_${colorObj.id}" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="${colorObj.accent}"/>
-                <stop offset="100%" stop-color="${colorObj.border}"/>
-              </linearGradient>
-              <pattern id="linenTexture_${colorObj.id}" width="6" height="6" patternUnits="userSpaceOnUse">
-                <path d="M 0,3 L 6,3 M 3,0 L 3,6" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.75"/>
-              </pattern>
-            </defs>
-
-            <ellipse cx="200" cy="435" rx="145" ry="25" fill="${shadowColor}"/>
-
-            <!-- Longer back curved hem contour showing modesty -->
-            <path d="M 90,390 Q 200,465 310,390 L 310,430 Q 200,475 90,430 Z" fill="${colorObj.border}" opacity="0.6"/>
-
-            <!-- Sleeves -->
-            <path d="M 125,120 L 40,240 Q 30,260 55,270 L 95,245 L 120,180 Z" 
-                  fill="url(#sleeveGrad_${colorObj.id})" stroke="${strokeColor}" stroke-width="1.8"/>
-            <path d="M 40,240 L 55,270" stroke="${strokeColor}" stroke-width="3"/>
-
-            <path d="M 275,120 L 360,240 Q 370,260 345,270 L 305,245 L 280,180 Z" 
-                  fill="url(#sleeveGrad_${colorObj.id})" stroke="${strokeColor}" stroke-width="1.8"/>
-            <path d="M 360,240 L 345,270" stroke="${strokeColor}" stroke-width="3"/>
-
-            <!-- Oversized Torso -->
-            <path d="M 140,85 
-                     Q 165,95 200,95 
-                     Q 235,95 260,85 
-                     L 285,120 
-                     Q 320,240 310,390 
-                     Q 255,445 200,445 
-                     Q 145,445 90,390 
-                     Q 80,240 115,120 
-                     Z" 
-                  fill="url(#bodyGrad_${colorObj.id})" stroke="${strokeColor}" stroke-width="2"/>
-            
-            <path d="M 140,85 
-                     Q 165,95 200,95 
-                     Q 235,95 260,85 
-                     L 285,120 
-                     Q 320,240 310,390 
-                     Q 255,445 200,445 
-                     Q 145,445 90,390 
-                     Q 80,240 115,120 
-                     Z" 
-                  fill="url(#linenTexture_${colorObj.id})"/>
-
-            <!-- Fabric folds -->
-            <path d="M 160,130 Q 150,260 140,400" fill="none" stroke="${foldStroke}" stroke-width="1.8"/>
-            <path d="M 240,130 Q 250,260 260,400" fill="none" stroke="${foldStroke}" stroke-width="1.8"/>
-            <path d="M 190,160 Q 185,280 180,410" fill="none" stroke="${foldStroke}" stroke-width="1.2"/>
-            <path d="M 210,160 Q 215,280 220,410" fill="none" stroke="${foldStroke}" stroke-width="1.2"/>
-
-            <!-- Buttons Placket -->
-            <path d="M 195,95 L 195,370 L 205,370 L 205,95 Z" fill="${colorObj.border}" opacity="0.3"/>
-            <line x1="200" y1="95" x2="200" y2="370" stroke="${strokeColor}" stroke-width="1.5"/>
-
-            <circle cx="200" cy="125" r="3.5" fill="${buttonFill}" stroke="${strokeColor}" stroke-width="1"/>
-            <circle cx="200" cy="165" r="3.5" fill="${buttonFill}" stroke="${strokeColor}" stroke-width="1"/>
-            <circle cx="200" cy="205" r="3.5" fill="${buttonFill}" stroke="${strokeColor}" stroke-width="1"/>
-            <circle cx="200" cy="245" r="3.5" fill="${buttonFill}" stroke="${strokeColor}" stroke-width="1"/>
-            <circle cx="200" cy="285" r="3.5" fill="${buttonFill}" stroke="${strokeColor}" stroke-width="1"/>
-            <circle cx="200" cy="325" r="3.5" fill="${buttonFill}" stroke="${strokeColor}" stroke-width="1"/>
-
-            <!-- Collar -->
-            <path d="M 200,95 L 140,85 Q 165,120 185,120 L 200,95 Z" 
-                  fill="${colorObj.accent}" stroke="${strokeColor}" stroke-width="1.8"/>
-            <path d="M 200,95 L 260,85 Q 235,120 215,120 L 200,95 Z" 
-                  fill="${colorObj.accent}" stroke="${strokeColor}" stroke-width="1.8"/>
-            <path d="M 185,95 Q 200,105 215,95" fill="none" stroke="${strokeColor}" stroke-width="2"/>
-
-            <!-- Front curved hem line -->
-            <path d="M 90,390 Q 145,445 200,445 Q 255,445 310,390" fill="none" stroke="${strokeColor}" stroke-width="2.2"/>
-
-            <!-- Side Drawstrings Ribbons (Matches photos) -->
-            <path d="M 100,310 Q 75,340 70,390" fill="none" stroke="${tieColor}" stroke-width="3.5" stroke-linecap="round"/>
-            <path d="M 100,315 Q 85,355 80,410" fill="none" stroke="${tieColor}" stroke-width="3.5" stroke-linecap="round"/>
-            <path d="M 300,310 Q 325,340 330,390" fill="none" stroke="${tieColor}" stroke-width="3.5" stroke-linecap="round"/>
-            <path d="M 300,315 Q 315,355 320,410" fill="none" stroke="${tieColor}" stroke-width="3.5" stroke-linecap="round"/>
-          </svg>
-        `;
-      }
 
       function initApp() {
         renderHeroSwatches();
         renderDynamicVisuals();
-        renderLookbookFallbacks();
         renderColorSelectors();
         updatePricingAndReceipt();
         updatePaymentCardStyles();
@@ -2038,15 +1865,20 @@
       }
 
       // Smooth Crossfade Image Transition
+      let heroTransitionToken = 0;
+
       function setHeroImageWithFade(newSrc, altText) {
         const heroContainer = document.getElementById('hero-display-container');
         if (!heroContainer) return;
 
-        const currentImg = heroContainer.querySelector('img');
-        if (!currentImg) {
+        const imgs = Array.from(heroContainer.querySelectorAll('img'));
+        const latestImg = imgs[imgs.length - 1];
+
+        if (!latestImg) {
           heroContainer.innerHTML = `
             <img 
               src="${newSrc}" 
+              data-src="${newSrc}"
               alt="${altText}"
               class="w-full h-full object-cover object-top transition-all duration-700 ease-out"
               onerror="this.style.display='none';"
@@ -2055,32 +1887,54 @@
           return;
         }
 
-        // Avoid re-animating if already showing this exact src
-        if (currentImg.src.endsWith(newSrc) || currentImg.src === newSrc) {
+        // Avoid re-animating if latest active image already displays this src
+        if (latestImg.getAttribute('data-src') === newSrc || latestImg.src.endsWith(newSrc)) {
           return;
         }
 
+        const token = ++heroTransitionToken;
         const newImg = document.createElement('img');
         newImg.src = newSrc;
+        newImg.setAttribute('data-src', newSrc);
         newImg.alt = altText;
         newImg.className = 'w-full h-full object-cover object-top absolute inset-0 opacity-0 scale-[1.02] transition-all duration-700 ease-out pointer-events-none';
-        
-        newImg.onload = () => {
+
+        const applyFadeIn = () => {
+          if (token !== heroTransitionToken) return;
+          Array.from(heroContainer.querySelectorAll('img')).slice(0, -1).forEach(el => el.remove());
+          const outgoing = heroContainer.querySelector('img');
           heroContainer.appendChild(newImg);
           requestAnimationFrame(() => {
-            newImg.classList.remove('opacity-0', 'scale-[1.02]');
-            newImg.classList.add('opacity-100', 'scale-100');
-            currentImg.classList.add('opacity-0');
-            setTimeout(() => {
-              if (currentImg && currentImg.parentNode === heroContainer) {
-                heroContainer.removeChild(currentImg);
+            requestAnimationFrame(() => {
+              if (token !== heroTransitionToken) {
+                if (newImg.parentNode === heroContainer) newImg.remove();
+                return;
               }
-            }, 750);
+              newImg.classList.remove('opacity-0', 'scale-[1.02]');
+              newImg.classList.add('opacity-100', 'scale-100');
+              if (outgoing) {
+                outgoing.classList.add('opacity-0');
+                setTimeout(() => {
+                  if (outgoing.parentNode === heroContainer) {
+                    outgoing.remove();
+                  }
+                }, 750);
+              }
+            });
           });
         };
-        newImg.onerror = () => {
-          currentImg.src = newSrc;
-        };
+
+        if (newImg.complete && newImg.naturalWidth > 0) {
+          applyFadeIn();
+        } else {
+          newImg.onload = applyFadeIn;
+          newImg.onerror = () => {
+            if (token === heroTransitionToken && latestImg) {
+              latestImg.src = newSrc;
+              latestImg.setAttribute('data-src', newSrc);
+            }
+          };
+        }
       }
 
       function renderDynamicVisuals() {
@@ -2234,18 +2088,6 @@
         });
       }
 
-      function renderLookbookFallbacks() {
-        // Fallbacks for the 4 photo cards if needed
-        const fb1 = document.getElementById('look-fallback-1');
-        if (fb1) fb1.innerHTML = generateChemisSvg(PRODUCT_COLORS[0], 'front');
-        const fb2 = document.getElementById('look-fallback-2');
-        if (fb2) fb2.innerHTML = generateChemisSvg(PRODUCT_COLORS[1], 'side');
-        const fb3 = document.getElementById('look-fallback-3');
-        if (fb3) fb3.innerHTML = generateChemisSvg(PRODUCT_COLORS[2], 'front');
-        const fb4 = document.getElementById('look-fallback-4');
-        if (fb4) fb4.innerHTML = generateChemisSvg(PRODUCT_COLORS[3], 'front');
-      }
-
       // Quick Choose color from Lookbook Card
       function quickChooseColor(colorId) {
         setPreviewColor(colorId);
@@ -2392,15 +2234,19 @@
         setProgressStep(3);
       }
 
+      function getBaseShippingCost() {
+        const govSelect = document.getElementById('customer-gov');
+        const govVal = govSelect ? govSelect.value : 'cairo_giza';
+        return govVal === 'cairo_giza' ? 60 : 80;
+      }
+
       function getShippingCost() {
         // Free shipping incentive for bundle 2 and 3
         if (state.selectedBundleId >= 2) {
           return 0;
         }
 
-        const govSelect = document.getElementById('customer-gov');
-        const govVal = govSelect ? govSelect.value : 'cairo_giza';
-        let baseShipping = govVal === 'cairo_giza' ? 60 : 80;
+        let baseShipping = getBaseShippingCost();
 
         // Check if instapay discount applies
         const paymentRadio = document.querySelector('input[name="payment_method"]:checked');
@@ -2445,8 +2291,21 @@
 
       function updatePricingAndReceipt() {
         const bundle = BUNDLES[state.selectedBundleId];
+        const baseShipping = getBaseShippingCost();
         const shipping = getShippingCost();
         const total = bundle.price + shipping;
+        const isFreeShippingBundle = state.selectedBundleId >= 2;
+        const isInstapay = document.querySelector('input[name="payment_method"]:checked')?.value === 'instapay';
+        const shippingSaving = isFreeShippingBundle ? baseShipping : 0;
+        const instapaySaving = (!isFreeShippingBundle && isInstapay) ? (baseShipping - shipping) : 0;
+        const totalSaved = bundle.savings + shippingSaving + instapaySaving;
+
+        const instaNoteEl = document.getElementById('insta-discount-note');
+        if (instaNoteEl) {
+          instaNoteEl.textContent = isFreeShippingBundle
+            ? 'شحن مجاني مطبق بالفعل على هذه الباقة ✓'
+            : 'خصم 20 جنيه إضافي على الشحن ⚡';
+        }
 
         const bundleLabel = document.getElementById('receipt-bundle-name');
         if (bundleLabel) bundleLabel.textContent = `سعر ${bundle.name}:`;
@@ -2456,13 +2315,11 @@
 
         const shippingLabel = document.getElementById('receipt-shipping-label');
         if (shippingLabel) {
-          if (state.selectedBundleId >= 2) {
+          if (isFreeShippingBundle) {
             shippingLabel.innerHTML = '<span class="text-emerald-700 font-bold">مصاريف الشحن:</span>';
           } else {
             const govSelect = document.getElementById('customer-gov');
             const isCairo = !govSelect || govSelect.value === 'cairo_giza';
-            const paymentRadio = document.querySelector('input[name="payment_method"]:checked');
-            const isInstapay = paymentRadio && paymentRadio.value === 'instapay';
             let text = isCairo ? 'مصاريف الشحن (القاهرة والجيزة):' : 'مصاريف الشحن (المحافظات):';
             if (isInstapay) text += ' (مطبق خصم الدفع الإلكتروني)';
             shippingLabel.textContent = text;
@@ -2471,7 +2328,7 @@
 
         const shippingEl = document.getElementById('receipt-shipping');
         if (shippingEl) {
-          if (state.selectedBundleId >= 2) {
+          if (isFreeShippingBundle) {
             shippingEl.innerHTML = '<span class="inline-flex items-center gap-1 font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 text-xs whitespace-nowrap">مجاناً (عرض الباقة) 🎁</span>';
           } else {
             shippingEl.innerHTML = `<span class="font-bold text-sheon-dark text-sm sm:text-base">${shipping} جنيه</span>`;
@@ -2480,10 +2337,7 @@
 
         const savingsEl = document.getElementById('receipt-savings');
         if (savingsEl) {
-          const shippingSaving = state.selectedBundleId >= 2 ? 60 : 0;
-          const instapaySaving = document.querySelector('input[name="payment_method"]:checked')?.value === 'instapay' ? 20 : 0;
-          const totalSaved = bundle.savings + shippingSaving + instapaySaving;
-          savingsEl.textContent = `وفرتي ${totalSaved.toLocaleString()} جنيه ${state.selectedBundleId >= 2 ? '(شحن مجاني)' : ''}`;
+          savingsEl.textContent = `وفرتي ${totalSaved.toLocaleString()} جنيه ${isFreeShippingBundle ? '(شحن مجاني)' : ''}`;
         }
 
         const totalEl = document.getElementById('receipt-total');
@@ -2491,13 +2345,26 @@
 
         // Mobile Sticky Bar updates
         const mobileStickyTitle = document.getElementById('mobile-sticky-title');
-        if (mobileStickyTitle) mobileStickyTitle.textContent = `${bundle.shortName} (توفير ${bundle.savings} ج)`;
+        if (mobileStickyTitle) mobileStickyTitle.textContent = `${bundle.shortName} (توفير ${totalSaved.toLocaleString()} ج)`;
 
         const mobileStickyPrice = document.getElementById('mobile-sticky-price');
         if (mobileStickyPrice) mobileStickyPrice.textContent = `${total.toLocaleString()} جنيه`;
 
         const mobileStickyOld = document.getElementById('mobile-sticky-oldprice');
-        if (mobileStickyOld) mobileStickyOld.textContent = `${(bundle.oldPrice + 80).toLocaleString()} جنيه`;
+        const oldTotal = isFreeShippingBundle ? bundle.oldPrice : (bundle.oldPrice + baseShipping);
+        if (mobileStickyOld) mobileStickyOld.textContent = `${oldTotal.toLocaleString()} جنيه`;
+      }
+
+      function normalizeEgyptianPhone(rawPhone) {
+        const arabicDigits = '٠١٢٣٤٥٦٧٨٩';
+        const easternDigits = '۰۱۲۳۴۵۶۷۸۹';
+        let normalized = rawPhone.trim().replace(/[٠-٩]/g, d => String(arabicDigits.indexOf(d)));
+        normalized = normalized.replace(/[۰-۹]/g, d => String(easternDigits.indexOf(d)));
+        normalized = normalized.replace(/[\s\-().]/g, '');
+        if (/^(?:\+?20|0020)(1[0125]\d{8})$/.test(normalized)) {
+          normalized = '0' + normalized.replace(/^(?:\+?20|0020)/, '');
+        }
+        return normalized;
       }
 
       // Order Submission & WhatsApp Message Compilation
@@ -2511,13 +2378,19 @@
         const notesInput = document.getElementById('customer-notes');
 
         const name = nameInput.value.trim();
-        const phone = phoneInput.value.trim();
+        const phone = normalizeEgyptianPhone(phoneInput.value);
         const address = addressInput.value.trim();
         const notes = notesInput ? notesInput.value.trim() : '';
         const govText = govSelect.options[govSelect.selectedIndex].text;
 
         if (!name || !phone || !address) {
           alert('برجاء استكمال الاسم ورقم الموبايل والعنوان بالتفصيل للمعاينة والتوصيل.');
+          return;
+        }
+
+        if (!/^01[0125]\d{8}$/.test(phone)) {
+          alert('برجاء إدخال رقم موبايل مصري صحيح مكوّن من 11 رقم (يبدأ بـ 010 أو 011 أو 012 أو 015).');
+          phoneInput.focus();
           return;
         }
 
@@ -2616,14 +2489,44 @@
 
       function copyOrderText() {
         const waLinkEl = document.getElementById('modal-whatsapp-link');
-        const text = waLinkEl.getAttribute('data-full-text') || '';
-        navigator.clipboard.writeText(text).then(() => {
-          const btn = document.getElementById('copy-btn');
+        const btn = document.getElementById('copy-btn');
+        const text = waLinkEl ? (waLinkEl.getAttribute('data-full-text') || '') : '';
+        if (!text || !btn) return;
+
+        const showCopySuccess = () => {
           btn.innerHTML = `<span class="text-emerald-700 font-bold">✓ تم نسخ تفاصيل الطلب بنجاح!</span>`;
           setTimeout(() => {
             btn.innerHTML = `<span>نسخ رسالة الطلب كـ نص</span>`;
           }, 2500);
-        });
+        };
+
+        const fallbackCopy = () => {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          let copied = false;
+          try {
+            copied = document.execCommand('copy');
+          } catch (_) {
+            copied = false;
+          }
+          document.body.removeChild(textarea);
+          if (copied) {
+            showCopySuccess();
+          } else {
+            alert('تعذر النسخ التلقائي، يمكنك إرسال الطلب مباشرة عبر زر واتساب.');
+          }
+        };
+
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          navigator.clipboard.writeText(text).then(showCopySuccess).catch(fallbackCopy);
+        } else {
+          fallbackCopy();
+        }
       }
 
       function toggleFaq(index) {
@@ -2643,32 +2546,6 @@
           icon.classList.remove('bg-sheon-burgundy', 'text-white', 'border-sheon-burgundy');
           icon.classList.add('bg-sheon-bg', 'text-sheon-dark');
         }
-      }
-
-      // Live Countdown Timer (Ticks Every Second)
-      function initCountdownTimer() {
-        let totalSeconds = 3 * 3600 + 42 * 60 + 19;
-        function updateDisplay() {
-          const hours = Math.floor(totalSeconds / 3600);
-          const minutes = Math.floor((totalSeconds % 3600) / 60);
-          const seconds = totalSeconds % 60;
-
-          const hEl = document.getElementById('cd-hours');
-          const mEl = document.getElementById('cd-minutes');
-          const sEl = document.getElementById('cd-seconds');
-
-          if (hEl) hEl.textContent = String(hours).padStart(2, '0');
-          if (mEl) mEl.textContent = String(minutes).padStart(2, '0');
-          if (sEl) sEl.textContent = String(seconds).padStart(2, '0');
-
-          if (totalSeconds > 0) {
-            totalSeconds--;
-          } else {
-            totalSeconds = 4 * 3600;
-          }
-        }
-        updateDisplay();
-        setInterval(updateDisplay, 1000);
       }
 
       // High-End Scroll Reveal Animation for Sections
@@ -2693,7 +2570,6 @@
       function initStickyCTA() {
         const cta = document.getElementById('sticky-order-cta');
         const orderSection = document.getElementById('order-section');
-        const heroSection = document.querySelector('section');
         if (!cta || !orderSection) return;
 
         function checkCTA() {
@@ -2716,7 +2592,6 @@
 
       document.addEventListener('DOMContentLoaded', () => {
         initApp();
-        initCountdownTimer();
         initScrollReveal();
         initStickyCTA();
         setProgressStep(1); // Start at step 1

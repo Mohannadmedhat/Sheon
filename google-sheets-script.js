@@ -19,6 +19,14 @@
  * =========================================================================
  */
 
+function sanitizeSheetText(value) {
+  var str = String(value == null ? '' : value);
+  if (/^[=+\-@]/.test(str)) {
+    return "'" + str;
+  }
+  return str;
+}
+
 function doGet(e) {
   return ContentService.createTextOutput(JSON.stringify({
     status: 'active',
@@ -41,22 +49,22 @@ function doPost(e) {
       data = e.parameter;
     }
     
-    // إضافة صف جديد ببيانات الأوردر
+    // إضافة صف جديد ببيانات الأوردر مع حماية الخلايا النصية من تفسيرات المعادلات
     sheet.appendRow([
-      data.orderCode || 'SH-0000',
-      data.timestamp || new Date().toLocaleString('ar-EG', { timeZone: 'Africa/Cairo' }),
-      data.customerName || '',
+      sanitizeSheetText(data.orderCode || 'SH-0000'),
+      sanitizeSheetText(data.timestamp || new Date().toLocaleString('ar-EG', { timeZone: 'Africa/Cairo' })),
+      sanitizeSheetText(data.customerName || ''),
       "'" + (data.phone || ''), // علامة ' لضمان بقاء صفر الموبايل على الشمال
-      data.governorate || '',
-      data.address || '',
-      data.bundleName || '',
-      data.chosenColors || '',
-      data.paymentMethod || '',
-      data.subtotal || 0,
-      data.shipping || 0,
-      data.total || 0,
-      data.notes || '',
-      data.status || 'جديد (قيد التأكيد)'
+      sanitizeSheetText(data.governorate || ''),
+      sanitizeSheetText(data.address || ''),
+      sanitizeSheetText(data.bundleName || ''),
+      sanitizeSheetText(data.chosenColors || ''),
+      sanitizeSheetText(data.paymentMethod || ''),
+      Number(data.subtotal) || 0,
+      Number(data.shipping) || 0,
+      Number(data.total) || 0,
+      sanitizeSheetText(data.notes || ''),
+      sanitizeSheetText(data.status || 'جديد (قيد التأكيد)')
     ]);
     
     // محاذاة البيانات في المنتصف
